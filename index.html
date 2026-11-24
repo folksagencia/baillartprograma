@@ -160,8 +160,8 @@ a{color:inherit}
 /* ---------- agradecimentos ---------- */
 .letter{position:relative;max-width:780px;margin:30px auto 0;background:var(--card);border:1px solid rgba(169,123,37,.35);border-radius:6px 6px 24px 24px;padding:clamp(26px,5vw,52px) clamp(26px,5vw,52px) clamp(44px,6vw,60px);box-shadow:var(--shadow);font-size:17px;line-height:1.78;text-align:justify;hyphens:auto}
 .letter::before{content:"";position:absolute;inset:10px;border:1px solid rgba(169,123,37,.3);border-radius:2px 2px 18px 18px;pointer-events:none}
-.letter p::first-letter{float:left;font-family:var(--title);font-weight:900;color:var(--wine);font-size:3em;line-height:1;margin:.12em .14em 0 0}
-@supports (initial-letter:2) or (-webkit-initial-letter:2){.letter p::first-letter{float:none;font-size:inherit;line-height:inherit;margin:0 .16em 0 0;-webkit-initial-letter:2;initial-letter:2}}
+
+.dc{float:left;font-family:var(--title);font-weight:900;color:var(--wine);font-size:3.4em;line-height:1;margin:-.02em .05em 0 0}
 .seal{position:absolute;left:50%;margin-left:-28px;bottom:-28px;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,#c42a43,#7b1426 70%);box-shadow:0 8px 16px -6px rgba(80,0,15,.7);color:#ffd9a6}
 .seal svg{width:30px}
 
@@ -290,7 +290,7 @@ mark{background:#ffd9df;color:var(--wine);border-radius:4px;padding:0 2px;font-w
 @media (min-width:900px){
   .hero{padding-top:44px}
   .hero .wrap{gap:22px}
-  .poster{width:min(100%,680px);padding:10px;border-radius:26px}.poster img{border-radius:17px}
+  .poster{width:min(100%,560px);padding:9px;border-radius:24px}.poster img{border-radius:17px}
   .hero .txt{display:grid;gap:24px;justify-items:center}
   .logo{width:500px}
   .arch{width:330px}
@@ -423,7 +423,7 @@ document.addEventListener('DOMContentLoaded',open);I.addEventListener('click',op
   <section class="sec wrap" id="agradecimentos">
     <h2 class="h rv">AGRADECIMENTOS</h2>
     <svg class="orn" data-orn></svg>
-    <div class="letter rv" id="letter"><p>À Deus, às nossas famílias, aos professores e profissionais envolvidos nesse festival, e a todos os funcionários da Baillart que dedicam-se e acreditam em cada um de nossos alunos; à Beatriz Saraiva pela dedicação, envolvimento e profissionalismo para com o espetáculo; à Jhessyca Ariella pela direção teatral do elenco e envolvimento na montagem do espetáculo; à Rebeca Saraiva e Ana Carolina de Araújo pela disponibilidade, ajuda, entrega e parceria; à Silvio Saraiva e Bruno Oliveira por todo o apoio; à Nádia Barros e Viviane Queiroz por serem sempre auxílio e pelo carinho com os alunos; aos pais dos alunos que acreditam na arte, apoiando o desenvolvimento cultural de seus filhos e confiando enormemente no trabalho desenvolvido pela Baillart; aos nossos apoiadores e patrocinadores pelo apoio e incentivo à arte e à dança em nossa cidade, e, por fim, aos nossos alunos, que souberam retribuir com amor e dedicação toda a confiança dos professores.</p><span class="seal" aria-hidden="true"><svg viewBox="0 0 48 48"><use href="#i-rose"/></svg></span></div>
+    <div class="letter rv" id="letter"><p><span class="dc" id="dc">À</span> Deus, às nossas famílias, aos professores e profissionais envolvidos nesse festival, e a todos os funcionários da Baillart que dedicam-se e acreditam em cada um de nossos alunos; à Beatriz Saraiva pela dedicação, envolvimento e profissionalismo para com o espetáculo; à Jhessyca Ariella pela direção teatral do elenco e envolvimento na montagem do espetáculo; à Rebeca Saraiva e Ana Carolina de Araújo pela disponibilidade, ajuda, entrega e parceria; à Silvio Saraiva e Bruno Oliveira por todo o apoio; à Nádia Barros e Viviane Queiroz por serem sempre auxílio e pelo carinho com os alunos; aos pais dos alunos que acreditam na arte, apoiando o desenvolvimento cultural de seus filhos e confiando enormemente no trabalho desenvolvido pela Baillart; aos nossos apoiadores e patrocinadores pelo apoio e incentivo à arte e à dança em nossa cidade, e, por fim, aos nossos alunos, que souberam retribuir com amor e dedicação toda a confiança dos professores.</p><span class="seal" aria-hidden="true"><svg viewBox="0 0 48 48"><use href="#i-rose"/></svg></span></div>
   </section>
 
   <section class="sec wrap" id="personagens">
@@ -668,6 +668,26 @@ function buildRest() {
 $('#credits').innerHTML = DATA.ficha.map((f, i) => { const k = f.indexOf(':'); return `<li class="rv" style="--d:${(i % 5) * .05}s"><b>${esc(f.slice(0, k + 1))}</b>${esc(f.slice(k + 1).trim())}</li>`; }).join('');
 $$('.rv, [data-orn], .h').forEach(el => io.observe(el));
 }
+
+/* ---------- capitular alinhada: 2 linhas, medida com as fontes reais ---------- */
+function fitDropCap() {
+  const dc = $('#dc'), p = dc.parentNode, cs = getComputedStyle(p), dcs = getComputedStyle(dc);
+  const c = document.createElement('canvas').getContext('2d');
+  const LH = parseFloat(cs.lineHeight), fs = parseFloat(cs.fontSize);
+  c.font = `${cs.fontWeight} ${fs}px ${cs.fontFamily}`; const t = c.measureText('H');
+  const capT = t.actualBoundingBoxAscent, tAsc = t.fontBoundingBoxAscent, tDesc = t.fontBoundingBoxDescent;
+  if (!capT || !tAsc) return;
+  c.font = `${dcs.fontWeight} 100px ${dcs.fontFamily}`; const d = c.measureText('A');
+  const r = d.actualBoundingBoxAscent / 100, dAsc = d.fontBoundingBoxAscent / 100, dDesc = d.fontBoundingBoxDescent / 100;
+  const size = (LH + capT) / r;
+  const capTopInBox = (size - (dAsc + dDesc) * size) / 2 + dAsc * size - r * size;
+  const firstCapTop = (LH - (tAsc + tDesc)) / 2 + tAsc - capT;
+  dc.style.fontSize = size.toFixed(2) + 'px';
+  dc.style.marginTop = (firstCapTop - capTopInBox).toFixed(2) + 'px';
+  dc.style.marginBottom = '-' + Math.max(0, size - 2 * LH).toFixed(2) + 'px';
+}
+(document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(fitDropCap);
+let dcT; addEventListener('resize', () => { clearTimeout(dcT); dcT = setTimeout(fitDropCap, 150); });
 
 /* ---------- a rosa: menu ---------- */
 const jar = $('#mbtn'), menu = $('#menu');
