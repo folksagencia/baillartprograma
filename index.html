@@ -158,9 +158,10 @@ a{color:inherit}
 .syn q{font-style:italic;font-weight:700}
 
 /* ---------- agradecimentos ---------- */
-.letter{position:relative;max-width:780px;margin:30px auto 0;background:var(--card);border:1px solid rgba(169,123,37,.35);border-radius:6px 6px 24px 24px;padding:clamp(26px,5vw,52px) clamp(26px,5vw,52px) clamp(44px,6vw,60px);box-shadow:var(--shadow);font-size:17px;line-height:1.78;text-align:justify;hyphens:auto}
+.letter{position:relative;max-width:780px;margin:30px auto 0;background:var(--card);border:1px solid rgba(169,123,37,.35);border-radius:6px 6px 24px 24px;padding:clamp(26px,5vw,52px) clamp(26px,5vw,52px) clamp(44px,6vw,60px);box-shadow:var(--shadow);font-size:16.5px;line-height:1.78;text-align:justify;hyphens:manual;-webkit-hyphens:manual}
 .letter::before{content:"";position:absolute;inset:10px;border:1px solid rgba(169,123,37,.3);border-radius:2px 2px 18px 18px;pointer-events:none}
 
+.letter p::first-line{word-spacing:var(--ws,0px);letter-spacing:var(--ls,0px)}
 .dc{float:left;font-family:var(--title);font-weight:900;color:var(--wine);font-size:3.4em;line-height:1;margin:-.02em .13em 0 0}
 .seal{position:absolute;left:50%;margin-left:-28px;bottom:-28px;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,#c42a43,#7b1426 70%);box-shadow:0 8px 16px -6px rgba(80,0,15,.7);color:#ffd9a6}
 .seal svg{width:30px}
@@ -688,8 +689,25 @@ function fitDropCap() {
   /* a caixa da capitular termina exatamente no fim da 2ª linha: a 3ª linha volta para a margem */
   dc.style.marginBottom = (2 * LH - (mt + size) - 1).toFixed(2) + 'px';
 }
-(document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(fitDropCap);
-let dcT; addEventListener('resize', () => { clearTimeout(dcT); dcT = setTimeout(fitDropCap, 150); });
+/* no computador, a 1ª linha termina em "festival," e a 2ª começa em "e a todos" (sem hifenizar) */
+function fitFirstLine() {
+  const p = $('#dc').parentNode, tn = $('#dc').nextSibling, txt = tn.data;
+  p.style.removeProperty('--ws'); p.style.removeProperty('--ls');
+  if (innerWidth < 600) return;
+  const target = txt.indexOf('festival,') + 'festival,'.length;
+  if (target < 9) return;
+  const r = document.createRange();
+  const lineEnd = () => { r.setStart(tn, 1); r.setEnd(tn, 2); const top = r.getBoundingClientRect().top;
+    for (let i = 2; i < Math.min(txt.length, target + 40); i++) { r.setStart(tn, i); r.setEnd(tn, i + 1); if (Math.abs(r.getBoundingClientRect().top - top) > 5) return i; } return txt.length; };
+  const ok = e => e >= target && txt.slice(target, e).trim() === '';
+  for (const [ws, ls] of [[0,0],[-.5,0],[-1,0],[-1,-.05],[-1.2,-.1],[1,0],[2,0],[3,0]]) {
+    p.style.setProperty('--ws', ws + 'px'); p.style.setProperty('--ls', ls + 'px');
+    if (ok(lineEnd())) return;
+  }
+  p.style.removeProperty('--ws'); p.style.removeProperty('--ls');
+}
+(document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(() => { fitDropCap(); fitFirstLine(); });
+let dcT; addEventListener('resize', () => { clearTimeout(dcT); dcT = setTimeout(() => { fitDropCap(); fitFirstLine(); }, 150); });
 
 /* ---------- a rosa: menu ---------- */
 const jar = $('#mbtn'), menu = $('#menu');
