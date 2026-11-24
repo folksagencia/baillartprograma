@@ -290,7 +290,7 @@ mark{background:#ffd9df;color:var(--wine);border-radius:4px;padding:0 2px;font-w
 @media (min-width:900px){
   .hero{padding-top:44px}
   .hero .wrap{gap:22px}
-  .poster{width:min(100%,560px);padding:9px;border-radius:24px}.poster img{border-radius:17px}
+  .poster{width:min(100%,430px,calc((100svh - 230px) * .75));padding:8px;border-radius:22px}.poster img{border-radius:17px}
   .hero .txt{display:grid;gap:24px;justify-items:center}
   .logo{width:500px}
   .arch{width:330px}
@@ -682,9 +682,11 @@ function fitDropCap() {
   const size = (LH + capT) / r;
   const capTopInBox = (size - (dAsc + dDesc) * size) / 2 + dAsc * size - r * size;
   const firstCapTop = (LH - (tAsc + tDesc)) / 2 + tAsc - capT;
+  const mt = firstCapTop - capTopInBox;
   dc.style.fontSize = size.toFixed(2) + 'px';
-  dc.style.marginTop = (firstCapTop - capTopInBox).toFixed(2) + 'px';
-  dc.style.marginBottom = '-' + Math.max(0, size - 2 * LH).toFixed(2) + 'px';
+  dc.style.marginTop = mt.toFixed(2) + 'px';
+  /* a caixa da capitular termina exatamente no fim da 2ª linha: a 3ª linha volta para a margem */
+  dc.style.marginBottom = (2 * LH - (mt + size) - 1).toFixed(2) + 'px';
 }
 (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(fitDropCap);
 let dcT; addEventListener('resize', () => { clearTimeout(dcT); dcT = setTimeout(fitDropCap, 150); });
