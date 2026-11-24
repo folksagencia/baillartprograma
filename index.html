@@ -4,17 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Baillart | A Mais Bela das Feras</title>
-<meta name="description" content="Programa infantil do espetáculo A Mais Bela das Feras. Em dezembro, no Teatro RioMar Fortaleza.">
+<meta name="description" content="Programa infantil do espetáculo A Mais Bela das Feras. Dias 22 e 23 de dezembro, no Teatro RioMar Fortaleza.">
 <meta name="theme-color" content="#f4e6c8">
 <!-- Prévia de link (WhatsApp, Instagram, Facebook). Se o endereço na Vercel for outro, troque https://baillart-programa.vercel.app/ em todas as linhas abaixo -->
 <link rel="canonical" href="https://baillart-programa.vercel.app/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Baillart Academia de Dança">
 <meta property="og:title" content="Baillart | A Mais Bela das Feras">
-<meta property="og:description" content="Programa infantil do espetáculo A Mais Bela das Feras. Em dezembro, no Teatro RioMar Fortaleza.">
+<meta property="og:description" content="Programa infantil do espetáculo A Mais Bela das Feras. Dias 22 e 23 de dezembro, no Teatro RioMar Fortaleza.">
 <meta property="og:url" content="https://baillart-programa.vercel.app/">
-<meta property="og:image" content="https://baillart-programa.vercel.app/img/og-capa.jpg">
-<meta property="og:image:secure_url" content="https://baillart-programa.vercel.app/img/og-capa.jpg">
+<meta property="og:image" content="https://baillart-programa.vercel.app/img/og-capa.jpg?v=3">
+<meta property="og:image:secure_url" content="https://baillart-programa.vercel.app/img/og-capa.jpg?v=3">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -22,8 +22,8 @@
 <meta property="og:locale" content="pt_BR">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Baillart | A Mais Bela das Feras">
-<meta name="twitter:description" content="Programa infantil do espetáculo A Mais Bela das Feras. Em dezembro, no Teatro RioMar Fortaleza.">
-<meta name="twitter:image" content="https://baillart-programa.vercel.app/img/og-capa.jpg">
+<meta name="twitter:description" content="Programa infantil do espetáculo A Mais Bela das Feras. Dias 22 e 23 de dezembro, no Teatro RioMar Fortaleza.">
+<meta name="twitter:image" content="https://baillart-programa.vercel.app/img/og-capa.jpg?v=3">
 <link rel="icon" type="image/png" href="img/marca_ba-vinho.png">
 <link rel="preload" as="image" href="img/marca_do_festival.png">
 <link rel="preload" as="image" href="img/video_de_anuncio-capa.jpg">
@@ -53,6 +53,7 @@ html{scroll-behavior:smooth;overflow-x:clip}
 body{font:16px/1.6 var(--text);color:var(--ink);background:var(--paper);overflow-x:clip;min-height:100vh}
 body::before{content:"";position:fixed;inset:0;z-index:-1;background:url(img/magnific_warm-champagne-gold_gOhIJTGSXO.jpg) center/cover no-repeat;opacity:.9;transform:translateZ(0)}
 img,video{display:block;max-width:100%}
+img{height:auto}
 button,input{font:inherit;color:inherit}
 a{color:inherit}
 .wrap{max-width:1120px;margin:0 auto;padding:0 max(5vw,18px)}
@@ -100,21 +101,24 @@ a{color:inherit}
 .logo{width:min(88vw,440px)}
 .when{display:flex;align-items:center;justify-content:center;gap:6px 16px;flex-wrap:wrap;font-family:var(--title);color:var(--slate);font-size:15px;letter-spacing:2px;font-weight:700}
 .when i{width:6px;height:6px;background:var(--gold-2);transform:rotate(45deg)}
-.hero .ba-mark{width:112px}
+.hero .ba-mark{width:104px;margin-bottom:-8px}
+.go .hero .ba-mark,.go .ba-mark{animation:fadeUp .55s var(--ease) both}
 .arch{position:relative;isolation:isolate;overflow:hidden;width:min(74vw,320px);aspect-ratio:9/16;border-radius:999px 999px 22px 22px;padding:7px;cursor:pointer;
   box-shadow:var(--shadow),0 0 30px rgba(255,206,120,.4)}
 .arch::before{content:"";position:absolute;z-index:-1;left:50%;top:50%;width:150%;aspect-ratio:1;margin:-75% 0 0 -75%;background:conic-gradient(#a2741e,#fff3c9,#d4ad5c,#7a5512,#f3dfa6,#a2741e);animation:rot 6s linear infinite;will-change:transform}
 .arch video{width:100%;height:100%;object-fit:cover;border-radius:999px 999px 16px 16px;background:#3a1a0c}
 @keyframes rot{to{transform:rotate(360deg)}}
 .hero.off .arch::before,.hero.off .petals span,.hero.off .petals b,.hero.off .down svg{animation-play-state:paused}
-.down{display:grid;place-items:center;width:52px;height:52px;border-radius:50%;color:var(--gold);text-decoration:none;border:1.5px solid rgba(162,116,30,.45);background:rgba(255,250,240,.6)}
-.down svg{animation:bob 1.5s ease-in-out infinite}
-@keyframes bob{50%{transform:translateY(5px)}}
+.down{display:grid;place-items:center;width:44px;height:68px;color:var(--gold);text-decoration:none;opacity:.8;transition:opacity .2s}
+.down:hover{opacity:1}
+.down svg{width:26px;height:60px;overflow:visible;animation:bob 2.2s ease-in-out infinite}
+.down .bud{fill:#b3162f}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
 /* entrada da capa */
 .go .kicker{animation:fadeUp .55s var(--ease) both}
 .go .logo{animation:popIn .7s .08s var(--ease) both}
 .go .arch{animation:riseUp .75s .16s var(--ease) both}
-.go .when,.go .ba-mark,.go .down{animation:fadeUp .55s .32s var(--ease) both}
+.go .when,.go .down{animation:fadeUp .55s .32s var(--ease) both}
 .pre .kicker,.pre .logo,.pre .arch,.pre .when,.pre .ba-mark,.pre .down{opacity:0}
 @keyframes spread{from{opacity:0;letter-spacing:18px}to{opacity:1}}
 @keyframes popIn{from{opacity:0;transform:translateY(14px) scale(.9)}to{opacity:1;transform:none}}
@@ -128,28 +132,28 @@ a{color:inherit}
 
 /* ---------- bandas que se fundem ---------- */
 .band{position:relative;margin-top:clamp(60px,9vw,100px);-webkit-mask:linear-gradient(transparent,#000 5%,#000 95%,transparent);mask:linear-gradient(transparent,#000 5%,#000 95%,transparent)}
-.glass{padding:clamp(80px,12vw,130px) 18px;background:#e9d3a3 center/cover}
-.glass.bg{background-image:url(img/magnific_translucent-champagne-honey-amber_Bh64fugoQR.jpg)}
+.glass{padding:clamp(64px,10vw,110px) 18px;background:#e9d3a3 center/cover}
+.glass.bg{background-image:linear-gradient(rgba(246,234,210,.35),rgba(246,234,210,.35)),url(img/magnific_translucent-champagne-honey-amber_Bh64fugoQR.jpg)}
 .glass .beam{position:absolute;inset:0;overflow:hidden;pointer-events:none}
 .glass .beam::after{content:"";position:absolute;top:-20%;bottom:-20%;left:0;width:40%;background:linear-gradient(100deg,transparent,rgba(255,244,210,.5),transparent);transform:translateX(-120%) skewX(-16deg);animation:beam 8s ease-in-out infinite;will-change:transform}
 @keyframes beam{0%,20%{transform:translateX(-120%) skewX(-16deg)}75%,100%{transform:translateX(320%) skewX(-16deg)}}
-.glass .card{position:relative;z-index:1;max-width:620px;margin:0 auto;background:rgba(255,250,238,.93);border:1px solid rgba(169,123,37,.45);border-radius:220px 220px 26px 26px;padding:clamp(60px,9vw,84px) clamp(22px,6vw,56px) 38px;box-shadow:var(--shadow);text-align:center}
-.glass .h{font-size:clamp(27px,6.4vw,42px)}
-.syn{margin-top:22px;border:2px dashed #e8875a;border-radius:16px;padding:16px;background:#fff8f2;display:grid;gap:10px;justify-items:center}
-.syn p{font-size:15px;color:#7a3413}
+.glass .card{position:relative;z-index:1;max-width:520px;margin:0 auto;background:rgba(255,250,238,.93);border:1px solid rgba(169,123,37,.45);border-radius:180px 180px 22px 22px;padding:clamp(44px,7vw,64px) clamp(20px,5vw,44px) 30px;box-shadow:var(--shadow);text-align:center}
+.mark-t img{width:min(100%,300px);margin:0 auto}
+.syn{margin-top:18px;border:1.5px dashed #e8875a;border-radius:14px;padding:12px 14px;background:#fff8f2;display:grid;gap:10px;justify-items:center}
+.syn p{font-size:14px;color:#7a3413;line-height:1.5}
 .syn q{font-style:italic;font-weight:700}
 
 /* ---------- agradecimentos ---------- */
-.letter{position:relative;max-width:780px;margin:30px auto 0;background:var(--card);border:1px solid rgba(169,123,37,.35);border-radius:6px 6px 24px 24px;padding:clamp(26px,5vw,52px);box-shadow:var(--shadow);font-size:17px;line-height:1.78;text-align:justify;hyphens:auto}
+.letter{position:relative;max-width:780px;margin:30px auto 0;background:var(--card);border:1px solid rgba(169,123,37,.35);border-radius:6px 6px 24px 24px;padding:clamp(26px,5vw,52px) clamp(26px,5vw,52px) clamp(44px,6vw,60px);box-shadow:var(--shadow);font-size:17px;line-height:1.78;text-align:justify;hyphens:auto}
 .letter::before{content:"";position:absolute;inset:10px;border:1px solid rgba(169,123,37,.3);border-radius:2px 2px 18px 18px;pointer-events:none}
 .letter p::first-letter{float:left;font-family:var(--title);font-weight:900;color:var(--wine);font-size:68px;line-height:.85;margin:6px 10px 0 0}
-.seal{position:absolute;right:22px;bottom:-26px;width:62px;height:62px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,#c42a43,#7b1426 70%);box-shadow:0 8px 16px -6px rgba(80,0,15,.7);color:#ffd9a6}
+.seal{position:absolute;left:50%;margin-left:-28px;bottom:-28px;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,#c42a43,#7b1426 70%);box-shadow:0 8px 16px -6px rgba(80,0,15,.7);color:#ffd9a6}
 .seal svg{width:30px}
 
 /* ---------- personagens (cartões que viram) ---------- */
-.cast{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,2.4vw,26px);margin-top:26px}
-.pc{position:relative;perspective:900px;cursor:pointer;border:0;background:none;text-align:center;padding:0;display:block;width:100%}
-.pc .in{position:relative;display:grid;transition:transform .7s var(--ease);transform-style:preserve-3d}
+.cast{display:grid;grid-auto-rows:1fr;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,2.4vw,26px);margin-top:26px}
+.pc{position:relative;perspective:900px;cursor:pointer;border:0;background:none;text-align:center;padding:0;display:flex;width:100%;height:100%}
+.pc .in{position:relative;display:grid;flex:1;transition:transform .7s var(--ease);transform-style:preserve-3d}
 .pc.flip .in{transform:rotateY(180deg)}
 .pc .f,.pc .b{grid-area:1/1;-webkit-backface-visibility:hidden;backface-visibility:hidden;background:var(--card);border-radius:20px;border:1px solid rgba(169,123,37,.3);box-shadow:var(--shadow);padding:10px 10px 14px}
 .pc .b{transform:rotateY(180deg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:linear-gradient(170deg,#fffaf0,#f6e3bd)}
@@ -163,7 +167,7 @@ a{color:inherit}
 .pc .f b,.pc .b b{display:block;font-family:var(--title);font-weight:700;color:var(--slate);font-size:clamp(15px,3.6vw,19px);line-height:1.15;margin-top:12px}
 .pc .b b{margin:0}
 .pc .f span{display:block;font-size:14.5px;color:var(--muted);line-height:1.4;margin-top:6px}
-.pc .turn{position:absolute;right:16px;bottom:-6px;width:30px;height:30px;border-radius:50%;background:var(--wine);color:#fff;display:grid;place-items:center;box-shadow:0 6px 12px -4px rgba(80,0,15,.6)}
+.pc .turn{position:absolute;z-index:3;right:9px;bottom:9px;width:30px;height:30px;border-radius:50%;background:var(--wine);color:#fff;display:grid;place-items:center;box-shadow:0 6px 12px -4px rgba(80,0,15,.6)}
 .pc .turn svg{width:16px}
 .pc .b small{font-size:12.5px;color:var(--muted);font-weight:700;letter-spacing:.3px}
 .sc-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
@@ -235,11 +239,11 @@ mark{background:#ffd9df;color:var(--wine);border-radius:4px;padding:0 2px;font-w
 .ig svg{width:22px;height:22px}
 
 /* ---------- a rosa: menu e progresso ---------- */
-.mbtn{position:absolute;z-index:60;top:max(12px,env(safe-area-inset-top));left:max(12px,env(safe-area-inset-left));width:44px;height:56px;border:0;background:none;cursor:pointer;opacity:.85;transition:opacity .2s}
+.mbtn{position:absolute;z-index:60;top:max(12px,env(safe-area-inset-top));left:max(12px,env(safe-area-inset-left));width:44px;height:44px;color:var(--gold);border:0;background:none;cursor:pointer;opacity:.85;transition:opacity .2s}
 .mbtn:hover,.open .mbtn{opacity:1}
-.mbtn svg{width:100%;height:100%;overflow:visible}
-.mbtn .dome{transition:transform .45s var(--ease);transform-box:view-box;transform-origin:32px 74px}
-.open .mbtn .dome{transform:translateY(-12px)}
+.mbtn svg{width:26px;height:26px;margin:auto;display:block}
+.mbtn svg path{transition:transform .35s var(--ease),opacity .2s;transform-box:fill-box;transform-origin:center}
+.open .mbtn .l1{transform:translateY(5px) rotate(45deg)}.open .mbtn .l2{opacity:0}.open .mbtn .l3{transform:translateY(-5px) rotate(-45deg)}
 .veil{position:fixed;inset:0;z-index:58;background:radial-gradient(circle at 34px 40px,rgba(255,248,228,.97) 0,rgba(250,238,210,.93) 45%,rgba(246,230,196,.88));opacity:0;pointer-events:none;transition:opacity .3s}
 .open .veil{opacity:1;pointer-events:auto}
 .menu{position:absolute;left:max(14px,env(safe-area-inset-left));top:calc(max(12px,env(safe-area-inset-top)) + 64px);z-index:59;display:grid;gap:9px;justify-items:start;pointer-events:none}
@@ -265,10 +269,75 @@ mark{background:#ffd9df;color:var(--wine);border-radius:4px;padding:0 2px;font-w
   .cast{grid-template-columns:repeat(4,minmax(0,1fr))}
   .tl::before,.tl .fill{left:27px}
   .sc{margin-left:72px}.sc::before{left:-52px}
-  .mbtn{top:18px;left:22px;width:48px;height:62px}
-  .menu{left:24px;top:90px}
+  .mbtn{top:18px;left:22px}
+  .menu{left:24px;top:70px}
 }
-@media (max-width:899px){.hero{padding-top:max(74px,calc(env(safe-area-inset-top) + 62px))}.stage{padding-left:46px;padding-right:46px}.stage .btn{font-size:15.5px;padding:14px 18px}.stage .btn.wa{font-size:13.5px;padding:10px 14px}.stage{padding-left:40px;padding-right:40px}.hero .txt{display:contents}.arch{order:3}.when{order:4}.hero .ba-mark{order:5}.down{order:6}}
+@media (max-width:899px){.hero{padding-top:max(74px,calc(env(safe-area-inset-top) + 62px))}.stage{padding-left:46px;padding-right:46px}.stage .btn{font-size:15.5px;padding:14px 18px}.stage .btn.wa{font-size:13.5px;padding:10px 14px}.stage{padding-left:40px;padding-right:40px}.hero .txt{display:contents}.hero .ba-mark{order:-1}.arch{order:3}.when{order:4}.down{order:6}}
+/* ---------- celular: tudo mais delicado ---------- */
+@media (max-width:600px){
+  body{font-size:15px}
+  .hero{padding-top:max(64px,calc(env(safe-area-inset-top) + 54px))}
+  .hero .wrap{gap:16px}
+  .hero .ba-mark{width:78px;margin-bottom:-4px}
+  .kicker{font-size:11px;letter-spacing:4px;gap:10px}.kicker::before,.kicker::after{width:24px}
+  .logo{width:min(68vw,270px)}
+  .arch{width:min(60vw,240px);padding:5px}
+  .when{font-size:12px;letter-spacing:1.5px;gap:4px 12px}
+  .mbtn{width:40px;height:40px}
+  .menu{top:calc(max(12px,env(safe-area-inset-top)) + 46px)}
+  .menu a{font-size:14.5px;min-height:44px;padding:7px 16px 7px 7px}.menu i{width:28px;height:28px}
+  .h{font-size:23px;letter-spacing:1.5px}
+  .orn{width:140px;height:18px;margin-top:8px}
+  .sec{padding-top:56px}
+  .band{margin-top:48px}
+  .glass{padding:52px 22px}
+  .glass .card{border-radius:150px 150px 18px 18px;padding:40px 18px 20px}
+  .mark-t img{width:min(100%,200px)}
+  .syn{padding:10px 12px;gap:8px}.syn p{font-size:13px}
+  .todo{font-size:10px;padding:6px 9px}
+  .hint{font-size:13.5px;margin-top:10px}
+  .todo-note{font-size:13px;padding:10px 12px;margin-top:14px;border-width:1.5px}
+  .letter{font-size:15px;line-height:1.7;padding:24px 20px 40px;text-align:left;hyphens:manual;margin-top:22px}
+  .letter::before{inset:7px}
+  .letter p::first-letter{font-size:46px;margin:5px 8px 0 0}
+  .seal{width:44px;height:44px;margin-left:-22px;bottom:-22px}.seal svg{width:21px}
+  .cast{gap:12px;margin-top:20px}
+  .pc .f,.pc .b{padding:7px 7px 12px;border-radius:16px}
+  .ph{border-radius:11px}.ph em{font-size:11px}
+  .pc .ph .todo{font-size:9px;padding:5px 7px;top:9px}
+  .pc .f b,.pc .b b{font-size:13.5px;margin-top:9px}
+  .pc .f span{font-size:12.5px;margin-top:4px}
+  .pc .turn{width:24px;height:24px;right:7px;bottom:7px}.pc .turn svg{width:13px}
+  .pc .b small{font-size:11px}
+  .sc-chips a{min-width:30px;height:30px;font-size:12px}
+  .petal-band{padding:64px 0 40px}
+  .finder{padding:14px;border-radius:18px;margin-top:16px}
+  .finder label{font-size:14.5px}.finder small{font-size:12.5px}
+  .search input{font-size:16px;min-height:46px;padding:11px 16px 11px 42px}
+  .search svg{left:15px;width:17px}
+  .found{font-size:13px}
+  .tl{padding:14px 0}
+  .tl::before,.tl .fill{left:15px;width:2px}
+  .sc{margin:0 0 16px 34px;padding:16px 14px 16px;border-radius:16px}
+  .sc::before{left:-25px;top:27px;width:11px;height:11px;border-width:2px}
+  .sc header{gap:10px}
+  .num{flex:0 0 40px;height:40px}.num svg{width:21px;height:21px}
+  .num i{width:19px;height:19px;font-size:10px;line-height:19px;right:-5px;bottom:-3px}
+  .sc h3{font-size:16px}
+  .sc .roles{font-size:13.5px;margin-top:10px;gap:2px}
+  .sc p{font-size:13.5px;line-height:1.6;margin-top:9px}
+  .credits{gap:8px;margin-top:22px}
+  .credits li{font-size:13.5px;padding:10px 14px;border-radius:12px}
+  .credits b{font-size:12.5px}
+  .stage{margin-top:60px;padding-top:56px}
+  .stage .ba-mark{width:110px}
+  .stage .tag{font-size:11.5px}
+  .acts{gap:10px;margin-top:20px}
+  .stage .btn{font-size:14px;padding:11px 18px;min-height:44px}
+  .stage .btn.wa{font-size:12.5px;padding:9px 13px}
+  .ig{font-size:14px}.ig span{width:30px;height:30px;border-radius:9px}.ig svg{width:18px;height:18px}
+  .down{height:56px}.down svg{width:22px;height:50px}
+}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv,.pc.rv,.sc.rv,.credits li.rv{opacity:1;transform:none}.pre *{opacity:1!important}.intro,.petals,#fx{display:none}.h{-webkit-text-fill-color:currentColor;background:none}.orn path{stroke-dashoffset:0}.orn .dot{opacity:1}}
 </style>
 </head>
@@ -288,35 +357,16 @@ document.addEventListener('DOMContentLoaded',open);I.addEventListener('click',op
 
 <header class="hero" id="topo">
   <button class="mbtn" id="mbtn" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
-  <svg viewBox="0 0 64 84" aria-hidden="true">
-    <ellipse cx="32" cy="80" rx="26" ry="4" fill="#7a5512"/>
-    <rect x="6" y="74" width="52" height="6" rx="3" fill="#d4ad5c"/>
-    <path d="M32 72V44" stroke="#3f6b2a" stroke-width="2.4" fill="none"/>
-    <path d="M32 60c-6-1-9-5-9-8 5 0 9 3 9 8zM32 54c5-1 8-4 8-7-4 0-8 2-8 7z" fill="#4f8a35"/>
-    <path d="M22 36c-3-6 1-12 6-12-1 5-3 9-6 12z" fill="#a51b33"/>
-    <path d="M42 36c3-6-1-12-6-12 1 5 3 9 6 12z" fill="#a51b33"/>
-    <path d="M24 40c-5 0-7-4-6-8 3 2 5 4 6 8z" fill="#8f0f23"/>
-    <path d="M40 40c5 0 7-4 6-8-3 2-5 4-6 8z" fill="#8f0f23"/>
-    <path d="M26 26c2-4 10-4 12 0-4 2-8 2-12 0z" fill="#c0334a"/>
-    <path d="M27 42c3 3 7 3 10 0-3-2-7-2-10 0z" fill="#7b1426"/>
-    <path d="M25 33c0-7 14-7 14 0s-14 7-14 0z" fill="#c42a43"/>
-    <path d="M29 31c2-3 6-2 6 1" stroke="#7b1426" stroke-width="1.4" fill="none"/>
-    <g class="dome">
-      <path d="M10 74V30a22 22 0 0 1 44 0v44" fill="rgba(255,255,255,.25)" stroke="#d4ad5c" stroke-width="2"/>
-      <path d="M17 30a15 15 0 0 1 9-13" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".8" fill="none"/>
-      <circle cx="32" cy="7" r="3" fill="#d4ad5c"/>
-    </g>
-  </svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path class="l1" d="M4 7h16"/><path class="l2" d="M4 12h11"/><path class="l3" d="M4 17h16"/></svg>
   </button>
   <nav class="menu" id="menu" aria-label="Menu do programa" hidden></nav>
   <div class="petals" id="petals" aria-hidden="true"></div>
   <div class="wrap">
     <div class="txt">
+      <img class="ba-mark" src="img/marca_ba-azul.png" alt="Baillart Academia" width="112" height="66">
       <div class="kicker">PROGRAMA INFANTIL</div>
       <h1><img class="logo" src="img/marca_do_festival.png" alt="A MAIS BELA DAS FERAS" width="689" height="266"></h1>
-      <div class="when"><span>Em dezembro</span><i></i><span>Teatro RioMar Fortaleza</span></div>
-      <img class="ba-mark" src="img/marca_ba-azul.png" alt="Baillart Academia" width="112" height="66">
-      <a class="down" href="#espetaculo" aria-label="Ir para o programa"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+      <div class="when"><span>22 e 23 de dezembro</span><i></i><span>Teatro RioMar Fortaleza</span></div>
     </div>
     <div class="arch" id="arch" aria-label="Rosa encantada: toque para soltar pétalas" role="img">
       <video id="vid" muted loop playsinline disablepictureinpicture disableremoteplayback preload="metadata" poster="img/video_de_anuncio-capa.jpg">
@@ -330,7 +380,7 @@ document.addEventListener('DOMContentLoaded',open);I.addEventListener('click',op
   <section class="band glass" id="espetaculo" data-bg>
     <div class="beam" aria-hidden="true"></div>
     <div class="card rv">
-      <h2 class="h">A MAIS BELA DAS FERAS</h2>
+      <h2 class="mark-t"><img src="img/marca_do_festival.png" alt="A MAIS BELA DAS FERAS" width="689" height="266" loading="lazy"></h2>
       <svg class="orn" data-orn></svg>
       <div class="syn">
         <span class="todo">Aguardando o texto de apresentação</span>
@@ -522,9 +572,8 @@ $('#cast').innerHTML = DATA.personagens.map((p, i) => {
     <div class="in">
       <div class="f">
         <div class="ph"><span class="todo">Foto a enviar</span><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#i-rose"/></svg><em>Foto ${p.n}</em>
-          <img data-src="img/personagens/foto-${pad(p.n)}.jpg" alt="${esc(p.role)}: ${esc(p.names)}" hidden></div>
+          <img data-src="img/personagens/foto-${pad(p.n)}.jpg" alt="${esc(p.role)}: ${esc(p.names)}" hidden><i class="turn" aria-hidden="true"><svg viewBox="0 0 24 24" ${P}><path d="M3 12a9 9 0 0 1 15-6.7L21 8M21 3v5h-5M21 12a9 9 0 0 1-15 6.7L3 16M3 21v-5h5"/></svg></i></div>
         <b>${esc(p.role)}</b><span>${esc(p.names)}</span>
-        <i class="turn" aria-hidden="true"><svg viewBox="0 0 24 24" ${P}><path d="M3 12a9 9 0 0 1 15-6.7L21 8M21 3v5h-5M21 12a9 9 0 0 1-15 6.7L3 16M3 21v-5h5"/></svg></i>
       </div>
       <div class="b">
         <b>${esc(p.role)}</b>
@@ -592,7 +641,7 @@ $$('.rv, [data-orn], .h').forEach(el => io.observe(el));
 
 /* ---------- a rosa: menu ---------- */
 const jar = $('#mbtn'), menu = $('#menu');
-const ITEMS = [['espetaculo','O espetáculo','rose'],['agradecimentos','Agradecimentos','heart'],['personagens','Personagens','people'],['buscar','Procurar um nome','search'],['cenas','Cenas','list'],['ficha','Ficha técnica','book'],['aplauso','Aplausos','spark']];
+const ITEMS = [['espetaculo','O espetáculo','castle'],['agradecimentos','Agradecimentos','heart'],['personagens','Personagens','people'],['buscar','Procurar um nome','search'],['cenas','Cenas','list'],['ficha','Ficha técnica','book'],['aplauso','Aplausos','spark']];
 menu.innerHTML = ITEMS.map(([id, t, k], i) => `<a href="#${id}" data-sec="${id}" style="--i:${i}"><i>${ico(k)}</i>${t}</a>`).join('');
 let isOpen = false, current = '';
 function setMenu(o) {
