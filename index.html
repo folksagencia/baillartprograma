@@ -43,7 +43,7 @@
   --ink:#2c2a2e;--muted:#6b5d4c;
   --title:'Cinzel','Trajan Pro',Georgia,serif;
   --text:'Nunito Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
-  --shadow:0 14px 30px -20px rgba(105,62,8,.55);
+  --shadow:0 8px 18px -14px rgba(105,62,8,.38);
   --ease:cubic-bezier(.2,.9,.3,1);
   color-scheme:light;
 }
@@ -91,7 +91,7 @@ a{color:inherit}
 .medal{position:relative;width:min(70vw,300px);aspect-ratio:1;border-radius:50%;display:grid;place-items:center;padding:15%;
   background:radial-gradient(circle,#fff8e8 0,#f3e2bd 62%,#e2c27e 100%);box-shadow:0 0 0 6px #d4ad5c,0 30px 60px -20px rgba(0,0,0,.6);animation:medal .55s var(--ease) both}
 .medal img{width:100%}
-.flash{position:absolute;inset:0;z-index:4;pointer-events:none;background:radial-gradient(circle at 50% 50%,rgba(255,246,214,.95),rgba(255,226,150,.4) 40%,transparent 70%);opacity:0}
+.flash{position:absolute;inset:0;z-index:4;pointer-events:none;background:radial-gradient(circle at 50% 50%,rgba(255,246,214,.7),rgba(255,226,150,.25) 40%,transparent 70%);opacity:0}
 .intro.open .cur.l{animation:tieL .95s cubic-bezier(.7,0,.2,1) forwards}
 .intro.open .cur.r{animation:tieR .95s cubic-bezier(.7,0,.2,1) forwards}
 .intro.open .val{animation:up .7s .25s cubic-bezier(.7,0,.2,1) forwards}
@@ -116,7 +116,7 @@ a{color:inherit}
 .when i{width:6px;height:6px;background:var(--gold-2);transform:rotate(45deg)}
 .hero .ba-mark{width:112px}
 .arch{position:relative;isolation:isolate;overflow:hidden;width:min(74vw,320px);aspect-ratio:9/16;border-radius:999px 999px 22px 22px;padding:7px;cursor:pointer;
-  box-shadow:var(--shadow),0 0 50px rgba(255,206,120,.55)}
+  box-shadow:var(--shadow),0 0 30px rgba(255,206,120,.4)}
 .arch::before{content:"";position:absolute;z-index:-1;left:50%;top:50%;width:150%;aspect-ratio:1;margin:-75% 0 0 -75%;background:conic-gradient(#a2741e,#fff3c9,#d4ad5c,#7a5512,#f3dfa6,#a2741e);animation:rot 6s linear infinite;will-change:transform}
 .arch video{width:100%;height:100%;object-fit:cover;border-radius:999px 999px 16px 16px;background:#3a1a0c}
 @keyframes rot{to{transform:rotate(360deg)}}
@@ -141,8 +141,8 @@ a{color:inherit}
 @keyframes twinkle{0%,100%{opacity:0}50%{opacity:1}}
 
 /* ---------- bandas que se fundem ---------- */
-.band{position:relative;margin-top:clamp(60px,9vw,100px);-webkit-mask:linear-gradient(transparent,#000 14%,#000 86%,transparent);mask:linear-gradient(transparent,#000 14%,#000 86%,transparent)}
-.glass{padding:clamp(110px,16vw,170px) 18px;background:#e9d3a3 center/cover}
+.band{position:relative;margin-top:clamp(60px,9vw,100px);-webkit-mask:linear-gradient(transparent,#000 5%,#000 95%,transparent);mask:linear-gradient(transparent,#000 5%,#000 95%,transparent)}
+.glass{padding:clamp(80px,12vw,130px) 18px;background:#e9d3a3 center/cover}
 .glass.bg{background-image:url(img/magnific_translucent-champagne-honey-amber_Bh64fugoQR.jpg)}
 .glass .beam{position:absolute;inset:0;overflow:hidden;pointer-events:none}
 .glass .beam::after{content:"";position:absolute;top:-20%;bottom:-20%;left:0;width:40%;background:linear-gradient(100deg,transparent,rgba(255,244,210,.5),transparent);transform:translateX(-120%) skewX(-16deg);animation:beam 8s ease-in-out infinite;will-change:transform}
@@ -184,10 +184,10 @@ a{color:inherit}
 .sc-chips a{min-width:36px;height:36px;padding:0 8px;border-radius:99px;display:inline-grid;place-items:center;text-decoration:none;font:900 14px var(--title);color:#fff;background:radial-gradient(circle at 35% 30%,#e3c27a,#a2741e 70%)}
 
 /* ---------- cenas ---------- */
-.petal-band{padding:clamp(110px,16vw,160px) 0 70px;background:#e8c7a6 center 30%/cover}
+.petal-band{padding:clamp(80px,12vw,130px) 0 60px;background:#e8c7a6 center 30%/cover}
 .petal-band.bg{background-image:url(img/magnific_vertical-34-cinematic-fairytale-background_rgBeS5dxtc.jpg)}
 .petal-band .h{--slate:var(--wine)}
-.finder{max-width:560px;margin:22px auto 0;background:rgba(255,250,240,.95);border-radius:24px;padding:18px;box-shadow:0 20px 40px -24px rgba(80,0,15,.6);text-align:center}
+.finder{max-width:560px;margin:22px auto 0;background:rgba(255,250,240,.95);border-radius:24px;padding:18px;box-shadow:0 10px 24px -18px rgba(80,0,15,.45);text-align:center}
 .finder label{display:block;font-family:var(--title);font-weight:700;color:var(--wine);font-size:17px;line-height:1.25}
 .finder small{display:block;color:var(--muted);font-size:13.5px;margin-top:4px}
 .search{position:relative;margin-top:12px}
@@ -227,9 +227,11 @@ mark{background:#ffd9df;color:var(--wine);border-radius:4px;padding:0 2px;font-w
 .credits b{display:block;font-family:var(--title);font-weight:700;color:var(--slate);font-size:15px;letter-spacing:.5px}
 
 /* ---------- palco final ---------- */
-.stage{position:relative;overflow:hidden;margin-top:clamp(70px,10vw,110px);padding:clamp(70px,10vw,100px) 20px 50px;text-align:center;background:radial-gradient(ellipse 60% 70% at 50% 0,rgba(255,246,214,.95),rgba(246,234,210,0) 70%)}
-.stage::before,.stage::after{content:"";position:absolute;top:0;bottom:0;width:clamp(34px,11vw,150px);background:linear-gradient(90deg,rgba(40,0,8,.3),transparent 30%),repeating-linear-gradient(90deg,#4f0915 0,#7b1426 14px,#a51b33 26px,#7b1426 40px,#4f0915 54px)}
-.stage::before{left:0;border-radius:0 0 60% 0}.stage::after{right:0;border-radius:0 0 0 60%;transform:scaleX(-1)}
+.stage{position:relative;overflow:hidden;margin-top:clamp(70px,10vw,110px);padding:clamp(70px,10vw,100px) clamp(48px,14vw,180px) calc(40px + env(safe-area-inset-bottom));text-align:center;background:radial-gradient(ellipse 60% 70% at 50% 0,rgba(255,246,214,.95),rgba(246,234,210,0) 70%)}
+.stage::before,.stage::after{content:"";position:absolute;top:0;bottom:0;width:clamp(40px,12vw,160px);clip-path:polygon(0 0,100% 0,100% 6%,38% 56%,62% 100%,0 100%);background:linear-gradient(90deg,rgba(40,0,8,.3),transparent 30%),repeating-linear-gradient(90deg,#4f0915 0,#7b1426 14px,#a51b33 26px,#7b1426 40px,#4f0915 54px)}
+.stage::before{left:0}.stage::after{right:0;transform:scaleX(-1)}
+.stage .tie{position:absolute;top:54%;width:clamp(18px,4vw,30px);height:46px;border-radius:10px;background:linear-gradient(90deg,#8a6215,#f3dfa6,#a2741e);z-index:1;box-shadow:0 6px 10px rgba(0,0,0,.25)}
+.stage .tie.l{left:clamp(8px,3vw,46px)}.stage .tie.r{right:clamp(8px,3vw,46px)}
 .stage .ba-mark{width:160px;margin:0 auto}
 .stage .tag{font-family:var(--title);color:var(--gold);letter-spacing:2px;font-size:14px;margin-top:12px;font-weight:700}
 .acts{display:grid;gap:12px;justify-items:center;margin-top:26px}
@@ -238,31 +240,25 @@ mark{background:#ffd9df;color:var(--wine);border-radius:4px;padding:0 2px;font-w
 .btn.alt{background:#fffaf0;color:var(--wine);border:1.5px solid rgba(123,20,38,.35);box-shadow:none}
 .btn svg{width:22px;height:22px}
 .say{display:block;font-weight:800;color:var(--wine);min-height:22px;font-size:14px}
-footer{text-align:center;padding:16px 0 calc(110px + env(safe-area-inset-bottom))}
-.ig{display:inline-flex;align-items:center;gap:10px;font-weight:800;color:var(--slate);text-decoration:none;padding:10px 16px 10px 10px;border-radius:99px;background:#fffaf0;border:1px solid rgba(52,73,95,.18)}
+.stage .ig{margin-top:34px}
+.up{display:grid;place-items:center;width:46px;height:46px;margin:22px auto 0;border-radius:50%;color:var(--gold);border:1.5px solid rgba(162,116,30,.45);background:rgba(255,250,240,.7);text-decoration:none}
+.btn.wa{background:linear-gradient(180deg,#2fd06b,#1fa855);box-shadow:0 10px 20px -12px rgba(20,120,60,.8);white-space:nowrap;font-size:14px;padding:10px 16px;min-height:44px;gap:8px}
+.btn.wa svg{width:18px;height:18px;flex:none}
+.ig{display:inline-flex;align-items:center;gap:10px;font-weight:800;color:var(--slate);text-decoration:none;padding:8px 4px;border-radius:99px;background:none;border:0}
 .ig span{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;background:radial-gradient(circle at 30% 107%,#fdf497 0,#fd5949 45%,#d6249f 60%,#285aeb 90%);color:#fff}
 .ig svg{width:22px;height:22px}
 
 /* ---------- a rosa: menu e progresso ---------- */
-.jar{position:fixed;right:max(12px,env(safe-area-inset-right));bottom:max(12px,env(safe-area-inset-bottom));z-index:60;width:64px;height:84px;border:0;background:none;cursor:pointer;filter:drop-shadow(0 10px 14px rgba(90,40,0,.35));transition:opacity .4s,transform .4s var(--ease)}
-.jar.hide{opacity:0;transform:translateY(30px) scale(.8);pointer-events:none}
-.jar svg{width:100%;height:100%;overflow:visible}
-.jar .dome{transition:transform .45s var(--ease);transform-box:view-box;transform-origin:32px 74px}
-.open .jar .dome{transform:translateY(-14px)}
-.jar .pt{transition:opacity .6s,transform .8s cubic-bezier(.3,0,.6,1);transform-box:fill-box;transform-origin:center}
-.jar .pt.off{opacity:0;transform:translate(10px,30px) rotate(80deg)}
-.jar .glow{opacity:0;transition:opacity .8s}
-.jar.full .glow{opacity:1}
-.jar .ring{position:absolute;inset:-6px;border-radius:50%;border:2px solid rgba(212,173,92,.8);opacity:0}
-.jar.call .ring{animation:call 1.6s ease-out 3}
-@keyframes call{0%{opacity:.9;transform:scale(.7)}100%{opacity:0;transform:scale(1.4)}}
-.bubble{border:1px solid rgba(169,123,37,.35);position:fixed;right:84px;bottom:max(34px,calc(env(safe-area-inset-bottom) + 22px));z-index:61;background:#fffaf0;color:var(--wine);font:800 13.5px var(--text);padding:9px 13px;border-radius:14px 14px 4px 14px;box-shadow:var(--shadow);opacity:0;transform:translateX(10px);transition:all .35s;pointer-events:none;max-width:200px}
-.bubble.on{opacity:1;transform:none}
-.veil{position:fixed;inset:0;z-index:58;background:radial-gradient(circle at calc(100% - 44px) calc(100% - 54px),rgba(255,248,228,.97) 0,rgba(250,238,210,.94) 40%,rgba(246,230,196,.9));opacity:0;pointer-events:none;transition:opacity .35s}
+.mbtn{position:absolute;z-index:60;top:max(12px,env(safe-area-inset-top));left:max(12px,env(safe-area-inset-left));width:44px;height:56px;border:0;background:none;cursor:pointer;opacity:.85;transition:opacity .2s}
+.mbtn:hover,.open .mbtn{opacity:1}
+.mbtn svg{width:100%;height:100%;overflow:visible}
+.mbtn .dome{transition:transform .45s var(--ease);transform-box:view-box;transform-origin:32px 74px}
+.open .mbtn .dome{transform:translateY(-12px)}
+.veil{position:fixed;inset:0;z-index:58;background:radial-gradient(circle at 34px 40px,rgba(255,248,228,.97) 0,rgba(250,238,210,.93) 45%,rgba(246,230,196,.88));opacity:0;pointer-events:none;transition:opacity .3s}
 .open .veil{opacity:1;pointer-events:auto}
-.menu{position:fixed;right:max(16px,env(safe-area-inset-right));bottom:calc(max(12px,env(safe-area-inset-bottom)) + 96px);z-index:59;display:grid;gap:10px;justify-items:end;pointer-events:none}
-.menu a,.menu button{pointer-events:none;display:inline-flex;align-items:center;gap:12px;text-decoration:none;font:700 16px var(--text);color:var(--slate);background:#fffaf0;border:1px solid rgba(169,123,37,.4);padding:10px 18px 10px 10px;border-radius:99px 30px 99px 99px;min-height:50px;box-shadow:0 12px 22px -14px rgba(105,62,8,.7);cursor:pointer;
-  opacity:0;transform:translate(30px,30px) scale(.6) rotate(8deg);transition:opacity .3s,transform .45s var(--ease);transition-delay:calc(var(--i) * 35ms)}
+.menu{position:absolute;left:max(14px,env(safe-area-inset-left));top:calc(max(12px,env(safe-area-inset-top)) + 64px);z-index:59;display:grid;gap:9px;justify-items:start;pointer-events:none}
+.menu a,.menu button{pointer-events:none;display:inline-flex;align-items:center;gap:12px;text-decoration:none;font:700 16px var(--text);color:var(--slate);background:#fffaf0;border:1px solid rgba(169,123,37,.4);padding:9px 18px 9px 9px;border-radius:30px 99px 99px 99px;min-height:50px;box-shadow:0 12px 22px -14px rgba(105,62,8,.7);cursor:pointer;
+  opacity:0;transform:translate(-24px,-24px) scale(.6) rotate(-8deg);transform-origin:left top;transition:opacity .3s,transform .45s var(--ease);transition-delay:calc(var(--i) * 35ms)}
 .menu i{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,#e3c27a,#a2741e 70%);color:#fff;flex:none}
 .menu i svg{width:18px;height:18px}
 .menu a.here{background:var(--slate);color:#fff;border-color:var(--slate)}
@@ -283,11 +279,10 @@ footer{text-align:center;padding:16px 0 calc(110px + env(safe-area-inset-bottom)
   .cast{grid-template-columns:repeat(4,minmax(0,1fr))}
   .tl::before,.tl .fill{left:27px}
   .sc{margin-left:72px}.sc::before{left:-52px}
-  .jar{width:72px;height:94px;right:24px;bottom:24px}
-  .menu{right:28px;bottom:130px}
-  .bubble{right:104px;bottom:44px}
+  .mbtn{top:18px;left:22px;width:48px;height:62px}
+  .menu{left:24px;top:90px}
 }
-@media (max-width:899px){.hero .txt{display:contents}.arch{order:3}.when{order:4}.hero .ba-mark{order:5}.down{order:6}}
+@media (max-width:899px){.hero{padding-top:max(74px,calc(env(safe-area-inset-top) + 62px))}.stage{padding-left:46px;padding-right:46px}.stage .btn{font-size:15.5px;padding:14px 18px}.stage .btn.wa{font-size:13.5px;padding:10px 14px}.stage{padding-left:40px;padding-right:40px}.hero .txt{display:contents}.arch{order:3}.when{order:4}.hero .ba-mark{order:5}.down{order:6}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv,.pc.rv,.sc.rv,.credits li.rv{opacity:1;transform:none}.pre *{opacity:1!important}.intro,.petals,#fx{display:none}.h{-webkit-text-fill-color:currentColor;background:none}.orn path{stroke-dashoffset:0}.orn .dot{opacity:1}}
 </style>
 </head>
@@ -295,14 +290,36 @@ footer{text-align:center;padding:16px 0 calc(110px + env(safe-area-inset-bottom)
 
 <div class="intro" id="intro" aria-hidden="true">
   <div class="cur l"></div><div class="cur r"></div><div class="val"></div>
-  <div class="mid"><div class="medal"><img src="img/marca_do_festival.png" alt=""></div></div>
   <div class="flash"></div>
 </div>
 <script>try{if(sessionStorage.getItem('bf_intro')||matchMedia('(prefers-reduced-motion: reduce)').matches)document.getElementById('intro').className='intro gone'}catch(e){}</script>
 
 <canvas id="fx" aria-hidden="true"></canvas>
+<div class="veil" id="veil"></div>
 
 <header class="hero" id="topo">
+  <button class="mbtn" id="mbtn" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+  <svg viewBox="0 0 64 84" aria-hidden="true">
+    <ellipse cx="32" cy="80" rx="26" ry="4" fill="#7a5512"/>
+    <rect x="6" y="74" width="52" height="6" rx="3" fill="#d4ad5c"/>
+    <path d="M32 72V44" stroke="#3f6b2a" stroke-width="2.4" fill="none"/>
+    <path d="M32 60c-6-1-9-5-9-8 5 0 9 3 9 8zM32 54c5-1 8-4 8-7-4 0-8 2-8 7z" fill="#4f8a35"/>
+    <path d="M22 36c-3-6 1-12 6-12-1 5-3 9-6 12z" fill="#a51b33"/>
+    <path d="M42 36c3-6-1-12-6-12 1 5 3 9 6 12z" fill="#a51b33"/>
+    <path d="M24 40c-5 0-7-4-6-8 3 2 5 4 6 8z" fill="#8f0f23"/>
+    <path d="M40 40c5 0 7-4 6-8-3 2-5 4-6 8z" fill="#8f0f23"/>
+    <path d="M26 26c2-4 10-4 12 0-4 2-8 2-12 0z" fill="#c0334a"/>
+    <path d="M27 42c3 3 7 3 10 0-3-2-7-2-10 0z" fill="#7b1426"/>
+    <path d="M25 33c0-7 14-7 14 0s-14 7-14 0z" fill="#c42a43"/>
+    <path d="M29 31c2-3 6-2 6 1" stroke="#7b1426" stroke-width="1.4" fill="none"/>
+    <g class="dome">
+      <path d="M10 74V30a22 22 0 0 1 44 0v44" fill="rgba(255,255,255,.25)" stroke="#d4ad5c" stroke-width="2"/>
+      <path d="M17 30a15 15 0 0 1 9-13" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".8" fill="none"/>
+      <circle cx="32" cy="7" r="3" fill="#d4ad5c"/>
+    </g>
+  </svg>
+  </button>
+  <nav class="menu" id="menu" aria-label="Menu do programa" hidden></nav>
   <div class="petals" id="petals" aria-hidden="true"></div>
   <div class="wrap">
     <div class="txt">
@@ -371,47 +388,21 @@ footer{text-align:center;padding:16px 0 calc(110px + env(safe-area-inset-bottom)
   </section>
 
   <section class="stage" id="aplauso">
+    <i class="tie l" aria-hidden="true"></i><i class="tie r" aria-hidden="true"></i>
     <img class="ba-mark rv" src="img/marca_ba-vinho.png" alt="Baillart Academia" width="160" height="94">
     <div class="tag">aqui a felicidade tem ritmo</div>
     <div class="acts">
       <button class="btn" id="clap" type="button"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#i-rose"/></svg>Jogar rosas no palco</button>
-      <button class="btn alt" id="share" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7M16 6l-4-4-4 4M12 2v13"/></svg>Enviar o programa para a família</button>
+      <a class="btn wa" id="wa" href="https://wa.me/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zm8.4-18.2A11.8 11.8 0 0 0 1.7 17.9L0 24l6.3-1.6A11.8 11.8 0 0 0 23.8 12c0-3.2-1.2-6.1-3.4-8.4z"/></svg>Enviar o programa no WhatsApp</a>
       <span class="say" id="say" role="status"></span>
     </div>
+    <a class="ig" href="https://www.instagram.com/baillartacademia.ba/" target="_blank" rel="noopener"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" stroke="none"/></svg></span>@baillartacademia.ba</a>
   </section>
 </main>
 
-<footer class="wrap">
-  <a class="ig" href="https://www.instagram.com/baillartacademia.ba/" target="_blank" rel="noopener"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" stroke="none"/></svg></span>@baillartacademia.ba</a>
-</footer>
 
-<!-- a rosa encantada: menu + progresso -->
-<div class="veil" id="veil"></div>
-<nav class="menu" id="menu" aria-label="Menu do programa" hidden></nav>
-<div class="bubble" id="bubble" aria-hidden="true">Toque na rosa para navegar</div>
-<button class="jar hide" id="jar" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
-  <span class="ring"></span>
-  <svg viewBox="0 0 64 84" aria-hidden="true">
-    <ellipse cx="32" cy="80" rx="26" ry="4" fill="#7a5512"/>
-    <rect x="6" y="74" width="52" height="6" rx="3" fill="#d4ad5c"/>
-    <path d="M32 72V44" stroke="#3f6b2a" stroke-width="2.4" fill="none"/>
-    <path d="M32 60c-6-1-9-5-9-8 5 0 9 3 9 8zM32 54c5-1 8-4 8-7-4 0-8 2-8 7z" fill="#4f8a35"/>
-    <circle class="glow" cx="32" cy="34" r="20" fill="rgba(255,226,150,.6)"/>
-    <path class="pt" d="M22 36c-3-6 1-12 6-12-1 5-3 9-6 12z" fill="#a51b33"/>
-    <path class="pt" d="M42 36c3-6-1-12-6-12 1 5 3 9 6 12z" fill="#a51b33"/>
-    <path class="pt" d="M24 40c-5 0-7-4-6-8 3 2 5 4 6 8z" fill="#8f0f23"/>
-    <path class="pt" d="M40 40c5 0 7-4 6-8-3 2-5 4-6 8z" fill="#8f0f23"/>
-    <path class="pt" d="M26 26c2-4 10-4 12 0-4 2-8 2-12 0z" fill="#c0334a"/>
-    <path class="pt" d="M27 42c3 3 7 3 10 0-3-2-7-2-10 0z" fill="#7b1426"/>
-    <path d="M25 33c0-7 14-7 14 0s-14 7-14 0z" fill="#c42a43"/>
-    <path d="M29 31c2-3 6-2 6 1" stroke="#7b1426" stroke-width="1.4" fill="none"/>
-    <g class="dome">
-      <path d="M10 74V30a22 22 0 0 1 44 0v44" fill="rgba(255,255,255,.25)" stroke="#d4ad5c" stroke-width="2"/>
-      <path d="M17 30a15 15 0 0 1 9-13" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".8" fill="none"/>
-      <circle cx="32" cy="7" r="3" fill="#d4ad5c"/>
-    </g>
-  </svg>
-</button>
+
+
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
   <g id="i-rose" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 22c-6 0-9-4-9-8 3 1 5 0 6-3 2 3 4 3 6 0 1 3 3 4 6 3 0 4-3 8-9 8z"/><path d="M21 11c1-3 5-3 6 0"/><path d="M24 22v20M24 32c-4-1-7-4-7-7 4 0 7 2 7 7zM24 36c3-1 6-3 6-6-4 0-6 2-6 6z"/></g>
@@ -501,14 +492,14 @@ if (fine && !reduce) {
 /* ---------- entrada ---------- */
 const intro = $('#intro');
 let started = false;
-function start() { if (started) return; started = true; document.body.classList.remove('pre'); document.body.classList.add('go'); setTimeout(() => { $('#jar').classList.remove('hide'); hint(); }, 1400); }
+function start() { if (started) return; started = true; document.body.classList.remove('pre'); document.body.classList.add('go'); }
 if (intro.classList.contains('gone')) { requestAnimationFrame(start); }
 else {
   try { sessionStorage.setItem('bf_intro','1') } catch(e) {}
   let opened = false;
   const open = () => { if (opened) return; opened = true; intro.classList.add('open'); burst(innerWidth / 2, innerHeight * .45, 50);
     setTimeout(start, 380); setTimeout(() => intro.classList.add('done'), 900); setTimeout(() => intro.classList.replace('done','gone'), 1250); };
-  setTimeout(open, 700); intro.addEventListener('click', open);
+  setTimeout(open, 350); intro.addEventListener('click', open);
 }
 
 /* ---------- pétalas da capa (poucas no celular) ---------- */
@@ -617,22 +608,20 @@ $('#credits').innerHTML = DATA.ficha.map((f, i) => { const k = f.indexOf(':'); r
 $$('.rv, [data-orn], .h').forEach(el => io.observe(el));
 
 /* ---------- a rosa: menu ---------- */
-const jar = $('#jar'), menu = $('#menu'), pts = $$('#jar .pt');
-const ITEMS = [['espetaculo','O espetáculo','rose'],['agradecimentos','Agradecimentos','heart'],['personagens','Personagens','people'],['buscar','Procurar um nome','search'],['cenas','Cenas','list'],['ficha','Ficha técnica','book'],['aplauso','Aplausos','spark'],['topo','Voltar ao início','up']];
-menu.innerHTML = '<div class="menu-title">PROGRAMA</div>' + ITEMS.map(([id, t, k], i) => `<a href="#${id}" data-sec="${id}" style="--i:${ITEMS.length - i}"><i>${ico(k)}</i>${t}</a>`).join('');
+const jar = $('#mbtn'), menu = $('#menu');
+const ITEMS = [['espetaculo','O espetáculo','rose'],['agradecimentos','Agradecimentos','heart'],['personagens','Personagens','people'],['buscar','Procurar um nome','search'],['cenas','Cenas','list'],['ficha','Ficha técnica','book'],['aplauso','Aplausos','spark']];
+menu.innerHTML = ITEMS.map(([id, t, k], i) => `<a href="#${id}" data-sec="${id}" style="--i:${i}"><i>${ico(k)}</i>${t}</a>`).join('');
 let isOpen = false, current = '';
 function setMenu(o) {
   isOpen = o; document.body.classList.toggle('open', o); jar.setAttribute('aria-expanded', String(o)); jar.setAttribute('aria-label', o ? 'Fechar menu' : 'Abrir menu');
   menu.hidden = false; menu.inert = !o;
-  if (o) { $('#bubble').classList.remove('on'); $$('.menu a').forEach(a => a.classList.toggle('here', a.dataset.sec === current)); setTimeout(() => menu.querySelector('a').focus({ preventScroll: true }), 60); }
+  if (o) { $$('.menu a').forEach(a => a.classList.toggle('here', a.dataset.sec === current)); setTimeout(() => menu.querySelector('a').focus({ preventScroll: true }), 60); }
 }
 jar.addEventListener('click', () => setMenu(!isOpen));
 $('#veil').addEventListener('click', () => setMenu(false));
 addEventListener('keydown', e => { if (e.key === 'Escape' && isOpen) { setMenu(false); jar.focus(); } });
 menu.addEventListener('click', e => { const a = e.target.closest('a'); if (!a) return; e.preventDefault(); setMenu(false);
   const t = document.getElementById(a.dataset.sec); setTimeout(() => { t.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); if (a.dataset.sec === 'buscar') setTimeout(() => $('#q').focus({ preventScroll: true }), 700); }, 120); });
-function hint() { if (reduce) return; try { if (localStorage.getItem('bf_hint')) return; localStorage.setItem('bf_hint','1'); } catch(e) {}
-  jar.classList.add('call'); $('#bubble').classList.add('on'); setTimeout(() => $('#bubble').classList.remove('on'), 4200); }
 
 /* ---------- rolagem: fio de ouro e pétalas da rosa ---------- */
 const tl = $('#tl'), secIds = ['espetaculo','agradecimentos','personagens','cenas','ficha','aplauso'];
@@ -644,11 +633,6 @@ function onScroll() {
     const y = scrollY, H = document.documentElement.scrollHeight - innerHeight;
     const b = tl.getBoundingClientRect();
     tl.style.setProperty('--p', Math.min(1, Math.max(0, (innerHeight * .6 - b.top) / b.height)).toFixed(3));
-    const prog = H > 0 ? y / H : 0;
-    const want = prog > .97 ? 0 : Math.min(pts.length, Math.floor(prog * (pts.length + 1)));
-    if (want !== lost) { pts.forEach((el, i) => el.classList.toggle('off', i < want)); lost = want; }
-    const full = prog > .97;
-    if (full !== jar.classList.contains('full')) { jar.classList.toggle('full', full); if (full) { const r = jar.getBoundingClientRect(); burst(r.left + r.width / 2, r.top + 30, 22); } }
     current = secIds.filter(id => { const el = document.getElementById(id); return el && el.getBoundingClientRect().top < innerHeight * .4; }).pop() || '';
   });
 }
@@ -663,12 +647,8 @@ $('#clap').addEventListener('click', e => {
   if (navigator.vibrate) navigator.vibrate(12);
   $('#say').textContent = claps === 1 ? 'Bravo! Uma rosa para o elenco.' : `Bravo! ${claps} rosas para o elenco.`;
 });
-$('#share').addEventListener('click', async () => {
-  const url = location.href.split('#')[0], data = { title: document.title, text: 'Programa do espetáculo A Mais Bela das Feras, da Baillart:', url };
-  try { if (navigator.share) { await navigator.share(data); return; } } catch(e) { if (e && e.name === 'AbortError') return; }
-  try { await navigator.clipboard.writeText(url); $('#say').textContent = 'Link copiado! É só colar no WhatsApp.'; }
-  catch(e) { $('#say').textContent = 'Copie o link: ' + url; }
-});
+const site = (document.querySelector('link[rel=canonical]') || {}).href || location.href.split('#')[0];
+$('#wa').href = 'https://wa.me/?text=' + encodeURIComponent('Programa do espetáculo A Mais Bela das Feras, da Baillart: ' + site);
 
 render('');
 }
