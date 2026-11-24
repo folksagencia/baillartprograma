@@ -13,17 +13,17 @@
 <meta property="og:title" content="Baillart | A Mais Bela das Feras">
 <meta property="og:description" content="Programa infantil do espetáculo A Mais Bela das Feras. Dias 22 e 23 de dezembro, no Teatro RioMar Fortaleza.">
 <meta property="og:url" content="https://baillart-programa.vercel.app/">
-<meta property="og:image" content="https://baillart-programa.vercel.app/img/og-capa.jpg?v=7">
-<meta property="og:image:secure_url" content="https://baillart-programa.vercel.app/img/og-capa.jpg?v=7">
+<meta property="og:image" content="https://baillart-programa.vercel.app/img/og-capa.jpg?v=9">
+<meta property="og:image:secure_url" content="https://baillart-programa.vercel.app/img/og-capa.jpg?v=9">
 <meta property="og:image:type" content="image/jpeg">
-<meta property="og:image:width" content="900">
+<meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="1200">
 <meta property="og:image:alt" content="Pôster do espetáculo A Mais Bela das Feras, da Baillart Academia">
 <meta property="og:locale" content="pt_BR">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Baillart | A Mais Bela das Feras">
 <meta name="twitter:description" content="Programa infantil do espetáculo A Mais Bela das Feras. Dias 22 e 23 de dezembro, no Teatro RioMar Fortaleza.">
-<meta name="twitter:image" content="https://baillart-programa.vercel.app/img/og-capa.jpg?v=7">
+<meta name="twitter:image" content="https://baillart-programa.vercel.app/img/og-capa.jpg?v=9">
 <link rel="icon" type="image/png" href="img/marca_ba-vinho.png">
 <link rel="preload" as="image" href="img/A_MAIS_BELA_DAS_FERAS_-_POSTER_PRINCIPAL.jpg?v=2" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -117,12 +117,17 @@ a{color:inherit}
 .go .kicker{animation:fadeUp .55s var(--ease) both}
 .go .logo{animation:popIn .7s .08s var(--ease) both}
 .go .poster{animation:riseUp .75s .1s var(--ease) both}
-.poster{position:relative;overflow:hidden;width:min(100%,calc((100svh - 200px) * .75),540px);padding:6px;border-radius:20px;cursor:pointer;
+.poster{position:relative;overflow:hidden;width:min(100%,calc((100svh - 200px) * .75),540px);padding:8px;border-radius:20px;cursor:pointer;
   background:linear-gradient(150deg,#f3dfa6,#a2741e 35%,#fff1c4 55%,#a2741e 80%,#e6c47a);box-shadow:0 18px 40px -24px rgba(105,62,8,.6),0 0 40px rgba(255,206,120,.35)}
-.poster img{width:100%;border-radius:15px}
+.poster{isolation:isolate}
+.poster img{position:relative;z-index:1;width:100%;border-radius:15px}
+.poster::before{content:"";position:absolute;z-index:0;left:50%;top:50%;width:160%;aspect-ratio:1;margin:-80% 0 0 -80%;
+  background:conic-gradient(from 0deg,transparent 0 58%,rgba(255,244,200,.0) 60%,#fff6d0 64%,#ffffff 68%,#ffe08a 72%,transparent 80%,transparent 100%);animation:rot 4.5s linear infinite;will-change:transform}
+.hero.off .poster::before,.hero.off .poster::after{animation-play-state:paused}
 .poster::after{content:"";position:absolute;top:-10%;bottom:-10%;left:0;width:45%;background:linear-gradient(100deg,transparent,rgba(255,250,230,.55),transparent);transform:translateX(-140%) skewX(-14deg);pointer-events:none}
-.go .poster::after{animation:sheen 1.4s .7s ease-in-out both}
-@keyframes sheen{to{transform:translateX(330%) skewX(-14deg)}}
+.poster::after{z-index:2}
+.go .poster::after{animation:sheen 5s .7s ease-in-out infinite}
+@keyframes sheen{0%{transform:translateX(-140%) skewX(-14deg)}28%,100%{transform:translateX(330%) skewX(-14deg)}}
 .go .when{animation:fadeUp .55s .3s var(--ease) both}
 .pre .kicker,.pre .poster,.pre .when,.pre .hero .ba-mark{opacity:0}
 @keyframes spread{from{opacity:0;letter-spacing:18px}to{opacity:1}}
@@ -285,7 +290,7 @@ mark{background:#ffd9df;color:var(--wine);border-radius:4px;padding:0 2px;font-w
 @media (min-width:900px){
   .hero{padding-top:44px}
   .hero .wrap{gap:22px}
-  .poster{width:min(100%,680px);padding:8px;border-radius:24px}.poster img{border-radius:17px}
+  .poster{width:min(100%,680px);padding:10px;border-radius:26px}.poster img{border-radius:17px}
   .hero .txt{display:grid;gap:24px;justify-items:center}
   .logo{width:500px}
   .arch{width:330px}
