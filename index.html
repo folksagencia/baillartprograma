@@ -29,7 +29,8 @@
 <link rel="preload" as="image" href="img/video_de_anuncio-capa.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Nunito+Sans:ital,wght@0,400;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Nunito+Sans:ital,wght@0,400;0,700;0,800;1,400&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Nunito+Sans:ital,wght@0,400;0,700;0,800;1,400&display=swap"></noscript>
 <style>
 /* VOICE: encantado e festivo, leve como a noite de estreia
    IDEA: o programa é o castelo: a rosa sob a redoma guia o público, perde pétalas enquanto ele rola e se transforma no final
@@ -78,33 +79,18 @@ a{color:inherit}
 
 /* ---------- cortina ---------- */
 .intro{position:fixed;inset:0;z-index:100;overflow:hidden;cursor:pointer}
-.cur{position:absolute;top:0;bottom:0;width:50.5%;will-change:clip-path,transform;
+.cur{position:absolute;top:0;bottom:0;width:50.5%;will-change:transform;transition:transform .8s cubic-bezier(.7,0,.25,1);
   background:linear-gradient(180deg,rgba(40,0,8,.35),transparent 20%,transparent 72%,rgba(40,0,8,.5)),
   repeating-linear-gradient(90deg,#4f0915 0,#7b1426 18px,#a51b33 34px,#c0334a 42px,#a51b33 50px,#7b1426 66px,#4f0915 84px)}
-.cur.l{left:0;clip-path:polygon(0 0,100% 0,100% 100%,0 100%)}
-.cur.r{right:0;clip-path:polygon(0 0,100% 0,100% 100%,0 100%)}
-.val{position:absolute;left:0;right:0;top:0;height:80px;z-index:3;
+.cur.l{left:0}.cur.r{right:0}
+.val{position:absolute;left:0;right:0;top:0;height:80px;z-index:3;will-change:transform;transition:transform .6s .12s cubic-bezier(.7,0,.25,1);
   background:linear-gradient(180deg,#8a6215,#e3c27a 55%,#a2741e);
   -webkit-mask:radial-gradient(circle at 50% 100%,transparent 17px,#000 18px) 0 0/44px 100%,linear-gradient(#000,#000) 0 0/100% 62px no-repeat;
   mask:radial-gradient(circle at 50% 100%,transparent 17px,#000 18px) 0 0/44px 100%,linear-gradient(#000,#000) 0 0/100% 62px no-repeat}
-.mid{position:absolute;inset:0;z-index:2;display:grid;place-items:center}
-.medal{position:relative;width:min(70vw,300px);aspect-ratio:1;border-radius:50%;display:grid;place-items:center;padding:15%;
-  background:radial-gradient(circle,#fff8e8 0,#f3e2bd 62%,#e2c27e 100%);box-shadow:0 0 0 6px #d4ad5c,0 30px 60px -20px rgba(0,0,0,.6);animation:medal .55s var(--ease) both}
-.medal img{width:100%}
-.flash{position:absolute;inset:0;z-index:4;pointer-events:none;background:radial-gradient(circle at 50% 50%,rgba(255,246,214,.7),rgba(255,226,150,.25) 40%,transparent 70%);opacity:0}
-.intro.open .cur.l{animation:tieL .95s cubic-bezier(.7,0,.2,1) forwards}
-.intro.open .cur.r{animation:tieR .95s cubic-bezier(.7,0,.2,1) forwards}
-.intro.open .val{animation:up .7s .25s cubic-bezier(.7,0,.2,1) forwards}
-.intro.open .medal{animation:away .55s ease forwards}
-.intro.open .flash{animation:flash .9s ease forwards}
-.intro.done{opacity:0;transition:opacity .3s;pointer-events:none}
+.intro.open .cur.l{transform:translate3d(-102%,0,0)}
+.intro.open .cur.r{transform:translate3d(102%,0,0)}
+.intro.open .val{transform:translate3d(0,-110%,0)}
 .intro.gone{display:none}
-@keyframes medal{from{opacity:0;transform:scale(.6) rotate(-12deg)}to{opacity:1;transform:none}}
-@keyframes away{to{opacity:0;transform:scale(1.35)}}
-@keyframes flash{30%{opacity:1}100%{opacity:0}}
-@keyframes up{to{transform:translateY(-110%)}}
-@keyframes tieL{to{clip-path:polygon(0 0,34% 0,10% 62%,0 100%)}}
-@keyframes tieR{to{clip-path:polygon(66% 0,100% 0,100% 100%,90% 62%)}}
 
 /* ---------- capa ---------- */
 .hero{position:relative;padding:max(28px,env(safe-area-inset-top)) 0 10px;overflow:hidden}
@@ -125,13 +111,13 @@ a{color:inherit}
 .down svg{animation:bob 1.5s ease-in-out infinite}
 @keyframes bob{50%{transform:translateY(5px)}}
 /* entrada da capa */
-.go .kicker{animation:spread .8s var(--ease) both}
-.go .logo{animation:reveal 1s .1s var(--ease) both}
-.go .arch{animation:riseUp .9s .2s var(--ease) both}
-.go .when,.go .ba-mark,.go .down{animation:fadeUp .7s .45s var(--ease) both}
+.go .kicker{animation:fadeUp .55s var(--ease) both}
+.go .logo{animation:popIn .7s .08s var(--ease) both}
+.go .arch{animation:riseUp .75s .16s var(--ease) both}
+.go .when,.go .ba-mark,.go .down{animation:fadeUp .55s .32s var(--ease) both}
 .pre .kicker,.pre .logo,.pre .arch,.pre .when,.pre .ba-mark,.pre .down{opacity:0}
 @keyframes spread{from{opacity:0;letter-spacing:18px}to{opacity:1}}
-@keyframes reveal{from{opacity:0;clip-path:circle(0 at 50% 50%);transform:scale(.92)}to{opacity:1;clip-path:circle(75% at 50% 50%);transform:none}}
+@keyframes popIn{from{opacity:0;transform:translateY(14px) scale(.9)}to{opacity:1;transform:none}}
 @keyframes riseUp{from{opacity:0;transform:translateY(60px) scale(.9)}to{opacity:1;transform:none}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 .petals{position:absolute;inset:0;pointer-events:none;overflow:hidden}
@@ -290,9 +276,12 @@ mark{background:#ffd9df;color:var(--wine);border-radius:4px;padding:0 2px;font-w
 
 <div class="intro" id="intro" aria-hidden="true">
   <div class="cur l"></div><div class="cur r"></div><div class="val"></div>
-  <div class="flash"></div>
 </div>
-<script>try{if(sessionStorage.getItem('bf_intro')||matchMedia('(prefers-reduced-motion: reduce)').matches)document.getElementById('intro').className='intro gone'}catch(e){}</script>
+<script>(function(){var I=document.getElementById('intro'),B=document.body,go=function(){B.classList.remove('pre');B.classList.add('go')};
+var skip=true;try{skip=!!sessionStorage.getItem('bf_intro')||matchMedia('(prefers-reduced-motion: reduce)').matches;sessionStorage.setItem('bf_intro','1')}catch(e){}
+if(skip){I.className='intro gone';requestAnimationFrame(go);return}
+var opened=false,open=function(){if(opened)return;opened=true;requestAnimationFrame(function(){I.classList.add('open');setTimeout(go,100);setTimeout(function(){I.className='intro gone'},900)})};
+document.addEventListener('DOMContentLoaded',open);I.addEventListener('click',open);setTimeout(open,600)})()</script>
 
 <canvas id="fx" aria-hidden="true"></canvas>
 <div class="veil" id="veil"></div>
@@ -330,7 +319,7 @@ mark{background:#ffd9df;color:var(--wine);border-radius:4px;padding:0 2px;font-w
       <a class="down" href="#espetaculo" aria-label="Ir para o programa"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
     </div>
     <div class="arch" id="arch" aria-label="Rosa encantada: toque para soltar pétalas" role="img">
-      <video id="vid" autoplay muted loop playsinline disablepictureinpicture disableremoteplayback preload="auto" poster="img/video_de_anuncio-capa.jpg">
+      <video id="vid" muted loop playsinline disablepictureinpicture disableremoteplayback preload="metadata" poster="img/video_de_anuncio-capa.jpg">
         <source src="video/video_de_anuncio.mp4" type="video/mp4">
       </video>
     </div>
@@ -489,29 +478,19 @@ if (fine && !reduce) {
     parts.push({ k:0, x: e.clientX, y: e.clientY, vx: (Math.random() - .5), vy: Math.random() * .6 + .2, g: .02, r: 0, vr: 0, s: Math.random() * 1.8 + 1, c: Math.random() < .5 ? '#f6d27a' : '#e9b955', life: 1, decay: .03 }); kick(); }, { passive: true });
 }
 
-/* ---------- entrada ---------- */
-const intro = $('#intro');
-let started = false;
-function start() { if (started) return; started = true; document.body.classList.remove('pre'); document.body.classList.add('go'); }
-if (intro.classList.contains('gone')) { requestAnimationFrame(start); }
-else {
-  try { sessionStorage.setItem('bf_intro','1') } catch(e) {}
-  let opened = false;
-  const open = () => { if (opened) return; opened = true; intro.classList.add('open'); burst(innerWidth / 2, innerHeight * .45, 50);
-    setTimeout(start, 380); setTimeout(() => intro.classList.add('done'), 900); setTimeout(() => intro.classList.replace('done','gone'), 1250); };
-  setTimeout(open, 350); intro.addEventListener('click', open);
-}
-
 /* ---------- pétalas da capa (poucas no celular) ---------- */
-if (!reduce) {
+if (!reduce) setTimeout(() => {
   const r = (a, b) => (a + Math.random() * (b - a)).toFixed(2), np = small ? 7 : 12, ns = small ? 8 : 16;
   $('#petals').innerHTML = Array.from({length:np}, (_, i) => `<span style="left:${(i * (100 / np) + Math.random() * 6).toFixed(1)}%;animation-duration:${r(10,17)}s;animation-delay:${r(-17,0)}s;scale:${r(.6,1.2)};--dx:${Math.round(Math.random() * 150 - 50)}px"></span>`).join('') +
     Array.from({length:ns}, () => `<b style="left:${r(2,98)}%;top:${r(4,92)}%;animation-duration:${r(2.2,4.5)}s;animation-delay:${r(-4,0)}s"></b>`).join('');
-}
+}, 1100);
 $('#arch').addEventListener('click', e => { const b = e.currentTarget.getBoundingClientRect(); burst(b.left + b.width / 2, b.top + b.height * .55, 34); });
 /* pausa a capa quando sai da tela */
 const hero = $('#topo'), vid = $('#vid');
-new IntersectionObserver(([e]) => { hero.classList.toggle('off', !e.isIntersecting); if (e.isIntersecting) vid.play().catch(() => {}); else vid.pause(); }).observe(hero);
+let vidReady = false, heroIn = true;
+const playVid = () => { if (vidReady && heroIn) vid.play().catch(() => {}); };
+setTimeout(() => { vidReady = true; vid.preload = 'auto'; playVid(); }, 1000);
+new IntersectionObserver(([e]) => { heroIn = e.isIntersecting; hero.classList.toggle('off', !heroIn); if (heroIn) playVid(); else vid.pause(); }).observe(hero);
 
 /* ---------- fundos carregados só quando chegam perto ---------- */
 const ioBg = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('bg'); ioBg.unobserve(e.target); } }), { rootMargin: '600px 0px' });
@@ -536,6 +515,7 @@ const scenesFor = p => {
   });
   return out;
 };
+function buildCast() {
 $('#cast').innerHTML = DATA.personagens.map((p, i) => {
   const sc = scenesFor(p);
   return `<div class="pc rv" style="--d:${(i % 4) * .07}s" role="button" tabindex="0" aria-label="${esc(p.role)}: ${esc(p.names)}. Toque para ver as cenas">
@@ -558,6 +538,7 @@ $$('.ph img').forEach(img => {
   img.addEventListener('error', () => img.remove());
   img.src = img.dataset.src;
 });
+}
 const flip = c => { c.classList.toggle('flip'); if (c.classList.contains('flip')) { const b = c.getBoundingClientRect(); burst(b.left + b.width / 2, b.top + b.height / 3, 10); } };
 $('#cast').addEventListener('click', e => { if (e.target.closest('[data-go]')) return; const c = e.target.closest('.pc'); if (c) flip(c); });
 $('#cast').addEventListener('keydown', e => { const c = e.target.closest('.pc'); if (c && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); flip(c); } });
@@ -604,8 +585,10 @@ document.addEventListener('click', e => {
 });
 
 /* ---------- ficha técnica ---------- */
+function buildRest() {
 $('#credits').innerHTML = DATA.ficha.map((f, i) => { const k = f.indexOf(':'); return `<li class="rv" style="--d:${(i % 5) * .05}s"><b>${esc(f.slice(0, k + 1))}</b>${esc(f.slice(k + 1).trim())}</li>`; }).join('');
 $$('.rv, [data-orn], .h').forEach(el => io.observe(el));
+}
 
 /* ---------- a rosa: menu ---------- */
 const jar = $('#mbtn'), menu = $('#menu');
@@ -650,7 +633,9 @@ $('#clap').addEventListener('click', e => {
 const site = (document.querySelector('link[rel=canonical]') || {}).href || location.href.split('#')[0];
 $('#wa').href = 'https://wa.me/?text=' + encodeURIComponent('Programa do espetáculo A Mais Bela das Feras, da Baillart: ' + site);
 
-render('');
+const later = () => { buildCast(); setTimeout(() => { buildRest(); setTimeout(() => render(''), 30); }, 30); };
+const intro0 = document.getElementById('intro').className.includes('gone');
+setTimeout(() => { if ('requestIdleCallback' in window) requestIdleCallback(later, { timeout: 500 }); else later(); }, intro0 ? 150 : 1050);
 }
 </script>
 </body>
