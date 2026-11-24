@@ -153,7 +153,8 @@ a{color:inherit}
 .letter.fold p{max-height:13.6em;overflow:hidden;-webkit-mask:linear-gradient(#000 70%,transparent);mask:linear-gradient(#000 70%,transparent)}
 .more{display:none;margin:10px auto 0;border:0;background:none;font:800 14px var(--text);color:var(--wine);cursor:pointer;padding:8px 12px;text-decoration:underline;text-underline-offset:3px}
 .letter.can .more{display:block}
-.letter p::first-letter{float:left;font-family:var(--title);font-weight:900;color:var(--wine);font-size:68px;line-height:.85;margin:6px 10px 0 0}
+.letter p::first-letter{float:left;font-family:var(--title);font-weight:900;color:var(--wine);font-size:3em;line-height:1;margin:.12em .14em 0 0}
+@supports (initial-letter:2) or (-webkit-initial-letter:2){.letter p::first-letter{float:none;font-size:inherit;line-height:inherit;margin:0 .16em 0 0;-webkit-initial-letter:2;initial-letter:2}}
 .seal{position:absolute;left:50%;margin-left:-28px;bottom:-28px;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,#c42a43,#7b1426 70%);box-shadow:0 8px 16px -6px rgba(80,0,15,.7);color:#ffd9a6}
 .seal svg{width:30px}
 
@@ -311,7 +312,6 @@ mark{background:#ffd9df;color:var(--wine);border-radius:4px;padding:0 2px;font-w
   .todo-note{font-size:13px;padding:10px 12px;margin-top:14px;border-width:1.5px}
   .letter{font-size:15px;line-height:1.7;padding:24px 20px 40px;text-align:left;hyphens:manual;margin-top:22px}
   .letter::before{inset:7px}
-  .letter p::first-letter{font-size:46px;margin:5px 8px 0 0}
   .seal{width:44px;height:44px;margin-left:-22px;bottom:-22px}.seal svg{width:21px}
   .cast{gap:10px;margin-top:20px}
   .pc .f,.pc .b{padding:7px 7px 12px;border-radius:16px}
