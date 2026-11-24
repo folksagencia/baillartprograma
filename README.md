@@ -44,7 +44,13 @@ O WhatsApp só lê a capa com o endereço completo. O `index.html` já aponta pa
 
 O WhatsApp guarda a prévia em cache: teste o link pela primeira vez já com a capa no ar.
 
+## PDF do programa
+O botão "Baixar em PDF" usa `programa-a-mais-bela-das-feras.pdf` (na raiz). Quando as fotos dos personagens
+ou o texto de apresentação chegarem, o PDF precisa ser gerado de novo para incluí-los.
+
 ## Arquivos
 - `img/og-capa.jpg` capa da prévia de link
 - `img/` imagens do festival (nomes originais, convertidas para .jpg mais leve) e marcas
-- `video/video_de_anuncio.mp4` vídeo da capa (720p, comprimido)
+- `img/A_MAIS_BELA_DAS_FERAS_-_POSTER_PRINCIPAL.jpg` pôster usado na capa
+- `img/patrocinadores/` logos dos patrocinadores
+- `video/` e `img/video_de_anuncio-capa.jpg` não são mais usados pela página (podem ficar ou ser apagados)
