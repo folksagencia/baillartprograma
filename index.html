@@ -126,6 +126,10 @@ a{color:inherit}
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 .petals{position:absolute;inset:0;pointer-events:none;overflow:hidden}
 .petals span{position:absolute;top:-30px;width:15px;height:19px;border-radius:70% 10% 70% 30%;background:#a51b33;opacity:.8;animation:fall linear infinite;will-change:transform}
+.petals i{position:absolute;top:-34px;width:16px;height:20px;border-radius:70% 10% 70% 30%;background:#b3162f;opacity:0;will-change:transform}
+.go .petals i{animation:drop ease-in forwards}
+@keyframes drop{0%{opacity:.95;transform:translate(0,0) rotate(0)}85%{opacity:.9}100%{opacity:0;transform:translate(var(--dx),105vh) rotate(var(--r))}}
+@media (max-width:600px){.petals span:nth-child(n+8){display:none}.petals b:nth-of-type(n+9){display:none}}
 .petals b{position:absolute;width:4px;height:4px;border-radius:50%;background:#fff3c4;box-shadow:0 0 8px 2px rgba(255,220,140,.9);animation:twinkle ease-in-out infinite;will-change:opacity}
 @keyframes fall{to{transform:translate(var(--dx,60px),110vh) rotate(540deg)}}
 @keyframes twinkle{0%,100%{opacity:0}50%{opacity:1}}
@@ -234,9 +238,9 @@ mark{background:#ffd9df;color:var(--wine);border-radius:4px;padding:0 2px;font-w
 .up{display:grid;place-items:center;width:46px;height:46px;margin:22px auto 0;border-radius:50%;color:var(--gold);border:1.5px solid rgba(162,116,30,.45);background:rgba(255,250,240,.7);text-decoration:none}
 .btn.wa{background:linear-gradient(180deg,#2fd06b,#1fa855);box-shadow:0 10px 20px -12px rgba(20,120,60,.8);white-space:nowrap;font-size:14px;padding:10px 16px;min-height:44px;gap:8px}
 .btn.wa svg{width:18px;height:18px;flex:none}
-.ig{display:inline-flex;align-items:center;gap:10px;font-weight:800;color:var(--slate);text-decoration:none;padding:8px 4px;border-radius:99px;background:none;border:0}
-.ig span{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;background:radial-gradient(circle at 30% 107%,#fdf497 0,#fd5949 45%,#d6249f 60%,#285aeb 90%);color:#fff}
-.ig svg{width:22px;height:22px}
+.ig{display:inline-flex;align-items:center;gap:8px;font-weight:800;color:var(--slate);text-decoration:none;padding:8px 4px;border-radius:99px;background:none;border:0}
+.ig span{width:26px;height:26px;display:grid;place-items:center;background:none;color:var(--slate)}
+.ig svg{width:24px;height:24px}
 
 /* ---------- a rosa: menu e progresso ---------- */
 .mbtn{position:absolute;z-index:60;top:max(12px,env(safe-area-inset-top));left:max(12px,env(safe-area-inset-left));width:44px;height:44px;color:var(--gold);border:0;background:none;cursor:pointer;opacity:.85;transition:opacity .2s}
@@ -267,6 +271,8 @@ mark{background:#ffd9df;color:var(--wine);border-radius:4px;padding:0 2px;font-w
   .logo{width:500px}
   .arch{width:330px}
   .cast{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .cast .pc:nth-child(4n+1):nth-last-child(2){grid-column:2}
+  .cast .pc:nth-child(4n+1):nth-last-child(1){grid-column:2/4}
   .tl::before,.tl .fill{left:27px}
   .sc{margin-left:72px}.sc::before{left:-52px}
   .mbtn{top:18px;left:22px}
@@ -335,7 +341,7 @@ mark{background:#ffd9df;color:var(--wine);border-radius:4px;padding:0 2px;font-w
   .acts{gap:10px;margin-top:20px}
   .stage .btn{font-size:14px;padding:11px 18px;min-height:44px}
   .stage .btn.wa{font-size:12.5px;padding:9px 13px}
-  .ig{font-size:14px}.ig span{width:30px;height:30px;border-radius:9px}.ig svg{width:18px;height:18px}
+  .ig{font-size:14px}.ig span{width:22px;height:22px}.ig svg{width:21px;height:21px}
   .down{height:56px}.down svg{width:22px;height:50px}
 }
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv,.pc.rv,.sc.rv,.credits li.rv{opacity:1;transform:none}.pre *{opacity:1!important}.intro,.petals,#fx{display:none}.h{-webkit-text-fill-color:currentColor;background:none}.orn path{stroke-dashoffset:0}.orn .dot{opacity:1}}
@@ -347,7 +353,7 @@ mark{background:#ffd9df;color:var(--wine);border-radius:4px;padding:0 2px;font-w
   <div class="cur l"></div><div class="cur r"></div><div class="val"></div>
 </div>
 <script>(function(){var I=document.getElementById('intro'),B=document.body,go=function(){B.classList.remove('pre');B.classList.add('go')};
-var skip=true;try{skip=!!sessionStorage.getItem('bf_intro')||matchMedia('(prefers-reduced-motion: reduce)').matches;sessionStorage.setItem('bf_intro','1')}catch(e){}
+var skip=false;try{skip=matchMedia('(prefers-reduced-motion: reduce)').matches}catch(e){}
 if(skip){I.className='intro gone';requestAnimationFrame(go);return}
 var opened=false,open=function(){if(opened)return;opened=true;requestAnimationFrame(function(){I.classList.add('open');setTimeout(go,100);setTimeout(function(){I.className='intro gone'},900)})};
 document.addEventListener('DOMContentLoaded',open);I.addEventListener('click',open);setTimeout(open,600)})()</script>
@@ -360,7 +366,7 @@ document.addEventListener('DOMContentLoaded',open);I.addEventListener('click',op
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path class="l1" d="M4 7h16"/><path class="l2" d="M4 12h11"/><path class="l3" d="M4 17h16"/></svg>
   </button>
   <nav class="menu" id="menu" aria-label="Menu do programa" hidden></nav>
-  <div class="petals" id="petals" aria-hidden="true"></div>
+  <div class="petals" id="petals" aria-hidden="true"><span style="left:1.6%;animation-duration:10.91s;animation-delay:-5.59s;scale:0.64;--dx:87px"></span><span style="left:8.8%;animation-duration:13.5s;animation-delay:-1.44s;scale:0.72;--dx:-28px"></span><span style="left:18.8%;animation-duration:10.42s;animation-delay:-14.55s;scale:0.83;--dx:94px"></span><span style="left:25.5%;animation-duration:11.34s;animation-delay:-5.96s;scale:1.12;--dx:97px"></span><span style="left:36.1%;animation-duration:10.3s;animation-delay:-12.46s;scale:0.91;--dx:-16px"></span><span style="left:42.9%;animation-duration:10.87s;animation-delay:-14.12s;scale:0.77;--dx:-4px"></span><span style="left:50.3%;animation-duration:13.43s;animation-delay:-12.99s;scale:0.65;--dx:-34px"></span><span style="left:60.9%;animation-duration:13.71s;animation-delay:-8.06s;scale:0.89;--dx:30px"></span><span style="left:68.7%;animation-duration:15.54s;animation-delay:-10.21s;scale:0.74;--dx:-4px"></span><span style="left:78.2%;animation-duration:11.46s;animation-delay:-6.81s;scale:0.89;--dx:37px"></span><span style="left:86.6%;animation-duration:11.73s;animation-delay:-0.32s;scale:0.66;--dx:57px"></span><span style="left:92.1%;animation-duration:12.05s;animation-delay:-1.07s;scale:0.83;--dx:-31px"></span><i style="left:3.8%;animation-duration:2.89s;animation-delay:0.31s;scale:0.89;--dx:29px;--r:544deg"></i><i style="left:10.1%;animation-duration:3.16s;animation-delay:0.02s;scale:0.76;--dx:9px;--r:482deg"></i><i style="left:18.7%;animation-duration:2.28s;animation-delay:0.26s;scale:0.89;--dx:54px;--r:385deg"></i><i style="left:26.4%;animation-duration:3.26s;animation-delay:0.12s;scale:1.26;--dx:30px;--r:326deg"></i><i style="left:33.5%;animation-duration:2.79s;animation-delay:0.08s;scale:0.87;--dx:3px;--r:443deg"></i><i style="left:40.0%;animation-duration:3.25s;animation-delay:0.03s;scale:0.97;--dx:80px;--r:382deg"></i><i style="left:50.0%;animation-duration:3.18s;animation-delay:0.3s;scale:0.87;--dx:46px;--r:423deg"></i><i style="left:56.6%;animation-duration:2.66s;animation-delay:0.08s;scale:0.75;--dx:-22px;--r:358deg"></i><i style="left:64.1%;animation-duration:2.21s;animation-delay:0.29s;scale:0.81;--dx:12px;--r:242deg"></i><i style="left:69.1%;animation-duration:2.84s;animation-delay:0.21s;scale:0.89;--dx:-28px;--r:593deg"></i><i style="left:80.3%;animation-duration:3.34s;animation-delay:0.23s;scale:1.14;--dx:56px;--r:588deg"></i><i style="left:87.6%;animation-duration:2.67s;animation-delay:0.14s;scale:0.76;--dx:42px;--r:271deg"></i><i style="left:92.2%;animation-duration:3.38s;animation-delay:0.15s;scale:0.77;--dx:-47px;--r:292deg"></i><b style="left:2.02%;top:17.31%;animation-duration:2.43s;animation-delay:-2.55s"></b><b style="left:4.45%;top:80.94%;animation-duration:3.61s;animation-delay:-3.41s"></b><b style="left:26.22%;top:34.57%;animation-duration:3.04s;animation-delay:-3.51s"></b><b style="left:83.5%;top:91.39%;animation-duration:3.27s;animation-delay:-2.06s"></b><b style="left:10.24%;top:12.99%;animation-duration:2.99s;animation-delay:-2.94s"></b><b style="left:81.57%;top:18.21%;animation-duration:2.25s;animation-delay:-0.2s"></b><b style="left:52.71%;top:16.9%;animation-duration:3.45s;animation-delay:-3.89s"></b><b style="left:52.7%;top:90.11%;animation-duration:4.19s;animation-delay:-1.22s"></b><b style="left:27.07%;top:36.27%;animation-duration:2.58s;animation-delay:-0.91s"></b><b style="left:53.13%;top:72.56%;animation-duration:2.96s;animation-delay:-3.11s"></b><b style="left:79.91%;top:90.67%;animation-duration:4.16s;animation-delay:-0.78s"></b><b style="left:80.56%;top:69.11%;animation-duration:2.72s;animation-delay:-1.93s"></b><b style="left:36.13%;top:6.55%;animation-duration:2.26s;animation-delay:-2.88s"></b><b style="left:26.88%;top:64.94%;animation-duration:4.4s;animation-delay:-2.21s"></b></div>
   <div class="wrap">
     <div class="txt">
       <img class="ba-mark" src="img/marca_ba-azul.png" alt="Baillart Academia" width="112" height="66">
@@ -432,7 +438,7 @@ document.addEventListener('DOMContentLoaded',open);I.addEventListener('click',op
     <div class="tag">aqui a felicidade tem ritmo</div>
     <div class="acts">
       <button class="btn" id="clap" type="button"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#i-rose"/></svg>Jogar rosas no palco</button>
-      <a class="btn wa" id="wa" href="https://wa.me/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zm8.4-18.2A11.8 11.8 0 0 0 1.7 17.9L0 24l6.3-1.6A11.8 11.8 0 0 0 23.8 12c0-3.2-1.2-6.1-3.4-8.4z"/></svg>Enviar o programa no WhatsApp</a>
+      <a class="btn wa" id="wa" href="https://wa.me/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zm8.4-18.2A11.8 11.8 0 0 0 1.7 17.9L0 24l6.3-1.6A11.8 11.8 0 0 0 23.8 12c0-3.2-1.2-6.1-3.4-8.4z"/></svg>Compartilhe no WhatsApp</a>
       <span class="say" id="say" role="status"></span>
     </div>
     <a class="ig" href="https://www.instagram.com/baillartacademia.ba/" target="_blank" rel="noopener"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" stroke="none"/></svg></span>@baillartacademia.ba</a>
@@ -529,11 +535,7 @@ if (fine && !reduce) {
 }
 
 /* ---------- pétalas da capa (poucas no celular) ---------- */
-if (!reduce) setTimeout(() => {
-  const r = (a, b) => (a + Math.random() * (b - a)).toFixed(2), np = small ? 7 : 12, ns = small ? 8 : 16;
-  $('#petals').innerHTML = Array.from({length:np}, (_, i) => `<span style="left:${(i * (100 / np) + Math.random() * 6).toFixed(1)}%;animation-duration:${r(10,17)}s;animation-delay:${r(-17,0)}s;scale:${r(.6,1.2)};--dx:${Math.round(Math.random() * 150 - 50)}px"></span>`).join('') +
-    Array.from({length:ns}, () => `<b style="left:${r(2,98)}%;top:${r(4,92)}%;animation-duration:${r(2.2,4.5)}s;animation-delay:${r(-4,0)}s"></b>`).join('');
-}, 1100);
+
 $('#arch').addEventListener('click', e => { const b = e.currentTarget.getBoundingClientRect(); burst(b.left + b.width / 2, b.top + b.height * .55, 34); });
 /* pausa a capa quando sai da tela */
 const hero = $('#topo'), vid = $('#vid');
